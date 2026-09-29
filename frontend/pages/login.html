@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description" content="Inicia sessão na plataforma." />
+
+    <meta name="theme-color" content="#121212" />
+
+    <title>Entrar — ONErpm</title>
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Project CSS -->
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <link rel="stylesheet" href="../assets/css/components.css" />
+
+    <link rel="stylesheet" href="../assets/css/auth.css" />
+  </head>
+
+  <body class="auth-page">
+    <!-- Ambient background -->
+
+    <div class="auth-background">
+      <div class="auth-glow auth-glow-one"></div>
+
+      <div class="auth-glow auth-glow-two"></div>
+
+      <div class="auth-grid"></div>
+    </div>
+
+    <!-- Main -->
+
+    <main class="auth-wrapper">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-sm-10 col-md-8 col-lg-5">
+            <!-- Logo -->
+
+            <div class="auth-brand">
+              <a href="../index.html" class="auth-logo">
+                <span class="navbar-brand-mark">
+                  <i class="bi bi-soundwave"></i>
+                </span>
+
+                ONErpm
+              </a>
+            </div>
+
+            <!-- Card -->
+
+            <div class="auth-card">
+              <div class="auth-header">
+                <span class="auth-eyebrow"> Bem-vindo de volta </span>
+
+                <h1>Entrar na tua conta</h1>
+
+                <p>Continua a construir a tua carreira musical.</p>
+              </div>
+
+              <!-- Alert -->
+
+              <div id="authAlert" class="auth-alert" role="alert"></div>
+
+              <!-- Form -->
+
+              <form id="loginForm" novalidate>
+                <!-- Email -->
+
+                <div class="auth-field">
+                  <label for="email" class="form-label"> Email </label>
+
+                  <div class="input-wrapper">
+                    <i class="bi bi-envelope"></i>
+
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="form-control"
+                      placeholder="nome@exemplo.com"
+                      autocomplete="email"
+                      required
+                    />
+                  </div>
+
+                  <div class="field-error" id="emailError"></div>
+                </div>
+
+                <!-- Password -->
+
+                <div class="auth-field">
+                  <div class="d-flex justify-content-between">
+                    <label for="password" class="form-label">
+                      Palavra-passe
+                    </label>
+
+                    <a href="#" class="forgot-password" id="forgotPassword">
+                      Esqueceste-te?
+                    </a>
+                  </div>
+
+                  <div class="input-wrapper">
+                    <i class="bi bi-lock"></i>
+
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      class="form-control"
+                      placeholder="A tua palavra-passe"
+                      autocomplete="current-password"
+                      required
+                    />
+
+                    <button
+                      type="button"
+                      class="password-toggle"
+                      data-target="password"
+                      aria-label="Mostrar palavra-passe"
+                    >
+                      <i class="bi bi-eye"></i>
+                    </button>
+                  </div>
+
+                  <div class="field-error" id="passwordError"></div>
+                </div>
+
+                <!-- Remember -->
+
+                <div class="auth-options">
+                  <label class="remember-option">
+                    <input type="checkbox" name="remember" />
+
+                    <span> Lembrar-me </span>
+                  </label>
+                </div>
+
+                <!-- Submit -->
+
+                <button
+                  type="submit"
+                  class="btn btn-primary auth-submit"
+                  id="loginButton"
+                >
+                  <span class="button-text">
+                    Entrar
+
+                    <i class="bi bi-arrow-right"></i>
+                  </span>
+
+                  <span class="button-loading" hidden>
+                    <span class="spinner-border spinner-border-sm"></span>
+
+                    A entrar...
+                  </span>
+                </button>
+              </form>
+              <div class="auth-divider">
+                <span>ou continuar com</span>
+              </div>
+
+              <div class="google-auth-wrapper">
+                <div id="googleLoginButton"></div>
+              </div>
+
+              <!-- Register -->
+
+              <div class="auth-divider">
+                <span> ou </span>
+              </div>
+
+              <div class="auth-register">
+                <span> Ainda não tens uma conta? </span>
+
+                <a href="registo.html"> Criar conta </a>
+              </div>
+            </div>
+
+            <!-- Footer -->
+
+            <div class="auth-footer">
+              <a href="../index.html">
+                <i class="bi bi-arrow-left"></i>
+
+                Voltar ao início
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- jQuery -->
+
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+    <!-- Bootstrap -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Auth JS -->
+
+    <script src="../assets/js/auth.js"></script>
+  </body>
+</html>

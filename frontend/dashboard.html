@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description" content="Dashboard da plataforma musical" />
+
+    <title>Dashboard — FREEzone</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <link rel="stylesheet" href="assets/css/dashboard.css" />
+  </head>
+
+  <body class="dashboard-body">
+    <!-- =====================================================
+     BACKGROUND EFFECTS
+===================================================== -->
+
+    <div class="dashboard-background">
+      <div class="dashboard-glow dashboard-glow-1"></div>
+      <div class="dashboard-glow dashboard-glow-2"></div>
+      <div class="dashboard-grid"></div>
+    </div>
+
+    <!-- =====================================================
+     MOBILE HEADER
+===================================================== -->
+
+    <header class="dashboard-mobile-header">
+      <button
+        class="dashboard-menu-btn"
+        id="dashboardMenuBtn"
+        aria-label="Abrir menu"
+      >
+        <i class="bi bi-list"></i>
+      </button>
+
+      <a href="index.html" class="dashboard-logo"> FREE<span>zone</span> </a>
+
+      <button
+        class="dashboard-notification-btn"
+        id="mobileNotificationBtn"
+        aria-label="Notificações"
+      >
+        <i class="bi bi-bell"></i>
+        <span class="notification-dot"></span>
+      </button>
+    </header>
+
+    <!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+    <aside class="dashboard-sidebar" id="dashboardSidebar">
+      <!-- Logo -->
+
+      <div class="sidebar-logo-wrapper">
+        <a href="index.html" class="sidebar-logo"> FREE<span>ZONE</span> </a>
+
+        <button
+          class="sidebar-close"
+          id="sidebarClose"
+          aria-label="Fechar menu"
+        >
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <!-- User -->
+
+      <div class="sidebar-user">
+        <div class="sidebar-avatar">
+          <span id="sidebarUserInitial">J</span>
+        </div>
+
+        <div class="sidebar-user-info">
+          <strong id="sidebarUserName"> Juliano Barros </strong>
+
+          <span id="sidebarUserRole"> Artista </span>
+        </div>
+
+        <button class="sidebar-user-menu" id="userMenuBtn">
+          <i class="bi bi-three-dots-vertical"></i>
+        </button>
+      </div>
+
+      <!-- Navigation -->
+
+      <nav class="dashboard-navigation">
+        <span class="navigation-label"> PRINCIPAL </span>
+
+        <a
+          href="#overview"
+          class="dashboard-nav-link active"
+          data-section="overview"
+        >
+          <i class="bi bi-grid-1x2-fill"></i>
+          <span>Visão geral</span>
+        </a>
+
+        <a
+          href="#analytics"
+          class="dashboard-nav-link"
+          data-section="analytics"
+        >
+          <i class="bi bi-bar-chart-fill"></i>
+          <span>Analytics</span>
+        </a>
+
+        <a href="#streams" class="dashboard-nav-link" data-section="streams">
+          <i class="bi bi-headphones"></i>
+          <span>Streams</span>
+        </a>
+
+        <a href="#revenue" class="dashboard-nav-link" data-section="revenue">
+          <i class="bi bi-wallet2"></i>
+          <span>Rendimentos</span>
+        </a>
+
+        <span class="navigation-label"> MÚSICA </span>
+
+        <a href="#releases" class="dashboard-nav-link" data-section="releases">
+          <i class="bi bi-disc"></i>
+          <span>Lançamentos</span>
+        </a>
+
+        <a href="#artists" class="dashboard-nav-link" data-section="artists">
+          <i class="bi bi-people"></i>
+          <span>Artistas</span>
+        </a>
+
+        <a
+          href="#distribution"
+          class="dashboard-nav-link"
+          data-section="distribution"
+        >
+          <i class="bi bi-cloud-arrow-up"></i>
+          <span>Distribuição</span>
+        </a>
+
+        <span class="navigation-label"> CONTA </span>
+
+        <a href="#profile" class="dashboard-nav-link" data-section="profile">
+          <i class="bi bi-person"></i>
+          <span>Meu perfil</span>
+        </a>
+
+        <a href="#settings" class="dashboard-nav-link" data-section="settings">
+          <i class="bi bi-gear"></i>
+          <span>Definições</span>
+        </a>
+      </nav>
+
+      <!-- Bottom -->
+
+      <div class="sidebar-bottom">
+        <a href="index.html" class="sidebar-home-link">
+          <i class="bi bi-house"></i>
+          <span>Voltar ao site</span>
+        </a>
+
+        <button class="sidebar-logout" id="logoutBtn">
+          <i class="bi bi-box-arrow-right"></i>
+          <span>Terminar sessão</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Overlay mobile -->
+
+    <div class="dashboard-overlay" id="dashboardOverlay"></div>
+
+    <!-- =====================================================
+     MAIN
+===================================================== -->
+
+    <main class="dashboard-main">
+      <!-- TOPBAR -->
+
+      <div class="dashboard-topbar">
+        <div>
+          <p class="dashboard-breadcrumb">Dashboard</p>
+
+          <h1>
+            Olá, <span id="dashboardUserName">Juliano</span>
+            <span class="wave">👋</span>
+          </h1>
+
+          <p class="dashboard-subtitle">
+            Aqui está o resumo da tua actividade musical.
+          </p>
+        </div>
+
+        <div class="dashboard-top-actions">
+          <!-- Search -->
+
+          <button class="top-action-btn" id="searchBtn" title="Pesquisar">
+            <i class="bi bi-search"></i>
+          </button>
+
+          <!-- Notifications -->
+
+          <button
+            class="top-action-btn notification-btn"
+            id="notificationBtn"
+            title="Notificações"
+          >
+            <i class="bi bi-bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+
+          <!-- Avatar -->
+
+          <button class="dashboard-profile-button" id="profileButton">
+            <div class="dashboard-avatar">
+              <span id="dashboardAvatarInitial"> J </span>
+            </div>
+
+            <i class="bi bi-chevron-down"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- =================================================
+         OVERVIEW
+    ================================================= -->
+
+      <section id="overview" class="dashboard-section">
+        <!-- Welcome card -->
+
+        <div class="dashboard-welcome-card" data-aos="fade-up">
+          <div class="welcome-content">
+            <span class="welcome-label"> RESUMO DA CONTA </span>
+
+            <h2>
+              A tua música está a chegar
+              <span>mais longe.</span>
+            </h2>
+
+            <p>
+              Acompanha os teus streams, rendimentos, lançamentos e crescimento
+              numa única plataforma.
+            </p>
+
+            <a href="pages/distribution.html" class="dashboard-primary-btn">
+              <i class="bi bi-cloud-arrow-up"></i>
+              Distribuir música
+            </a>
+          </div>
+
+          <div class="welcome-decoration">
+            <div class="vinyl-record">
+              <div class="vinyl-center">
+                <span>V</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Statistics -->
+
+        <div class="dashboard-stats-grid">
+          <div
+            class="dashboard-stat-card"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="stat-card-header">
+              <div class="stat-icon purple">
+                <i class="bi bi-headphones"></i>
+              </div>
+
+              <span class="stat-change positive"> +12,8% </span>
+            </div>
+
+            <span class="stat-label"> Streams totais </span>
+
+            <strong class="stat-value"> 128.450 </strong>
+
+            <span class="stat-period"> comparado ao mês passado </span>
+          </div>
+
+          <div
+            class="dashboard-stat-card"
+            data-aos="fade-up"
+            data-aos-delay="150"
+          >
+            <div class="stat-card-header">
+              <div class="stat-icon green">
+                <i class="bi bi-wallet2"></i>
+              </div>
+
+              <span class="stat-change positive"> +8,4% </span>
+            </div>
+
+            <span class="stat-label"> Rendimentos </span>
+
+            <strong class="stat-value"> 184.520 Kz </strong>
+
+            <span class="stat-period"> este mês </span>
+          </div>
+
+          <div
+            class="dashboard-stat-card"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="stat-card-header">
+              <div class="stat-icon blue">
+                <i class="bi bi-people"></i>
+              </div>
+
+              <span class="stat-change positive"> +4,2% </span>
+            </div>
+
+            <span class="stat-label"> Seguidores </span>
+
+            <strong class="stat-value"> 8.642 </strong>
+
+            <span class="stat-period"> em todas as plataformas </span>
+          </div>
+
+          <div
+            class="dashboard-stat-card"
+            data-aos="fade-up"
+            data-aos-delay="250"
+          >
+            <div class="stat-card-header">
+              <div class="stat-icon orange">
+                <i class="bi bi-disc"></i>
+              </div>
+
+              <span class="stat-change neutral"> 0% </span>
+            </div>
+
+            <span class="stat-label"> Lançamentos </span>
+
+            <strong class="stat-value"> 12 </strong>
+
+            <span class="stat-period"> músicas distribuídas </span>
+          </div>
+        </div>
+
+        <!-- Charts -->
+
+        <div class="dashboard-content-grid">
+          <!-- Streams chart -->
+
+          <div class="dashboard-panel chart-panel" data-aos="fade-up">
+            <div class="panel-header">
+              <div>
+                <span class="panel-label"> DESEMPENHO </span>
+
+                <h3>Streams</h3>
+              </div>
+
+              <select class="dashboard-select" id="streamsPeriod">
+                <option value="7">Últimos 7 dias</option>
+
+                <option value="30" selected>Últimos 30 dias</option>
+
+                <option value="90">Últimos 90 dias</option>
+
+                <option value="365">Último ano</option>
+              </select>
+            </div>
+
+            <div class="chart-summary">
+              <strong> 128.450 </strong>
+
+              <span class="positive"> +12,8% </span>
+            </div>
+
+            <div class="chart-container">
+              <canvas id="streamsChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Platforms -->
+
+          <div class="dashboard-panel platforms-panel" data-aos="fade-up">
+            <div class="panel-header">
+              <div>
+                <span class="panel-label"> PLATAFORMAS </span>
+
+                <h3>Onde te ouvem</h3>
+              </div>
+
+              <button class="panel-more-btn">
+                <i class="bi bi-three-dots"></i>
+              </button>
+            </div>
+
+            <div class="platform-chart">
+              <div class="donut-chart">
+                <div class="donut-center">
+                  <strong> 128K </strong>
+
+                  <span> streams </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="platform-list">
+              <div class="platform-item">
+                <span class="platform-dot spotify"></span>
+
+                <span> Spotify </span>
+
+                <strong> 46% </strong>
+              </div>
+
+              <div class="platform-item">
+                <span class="platform-dot apple"></span>
+
+                <span> Apple Music </span>
+
+                <strong> 28% </strong>
+              </div>
+
+              <div class="platform-item">
+                <span class="platform-dot youtube"></span>
+
+                <span> YouTube Music </span>
+
+                <strong> 16% </strong>
+              </div>
+
+              <div class="platform-item">
+                <span class="platform-dot other"></span>
+
+                <span> Outras </span>
+
+                <strong> 10% </strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- =================================================
+             RECENT RELEASES
+        ================================================= -->
+
+        <div class="dashboard-panel releases-panel" data-aos="fade-up">
+          <div class="panel-header">
+            <div>
+              <span class="panel-label"> MÚSICA </span>
+
+              <h3>Lançamentos recentes</h3>
+            </div>
+
+            <a href="#releases" class="panel-link">
+              Ver todos
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="releases-table-wrapper">
+            <table class="releases-table">
+              <thead>
+                <tr>
+                  <th>Música</th>
+
+                  <th>Data</th>
+
+                  <th>Streams</th>
+
+                  <th>Rendimentos</th>
+
+                  <th>Estado</th>
+
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="release-info">
+                      <div class="release-cover">
+                        <img
+                          src="assets/images/banners/music-01.jpg"
+                          alt="Midnight"
+                        />
+                      </div>
+
+                      <div>
+                        <strong> Midnight </strong>
+
+                        <span> Single </span>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td>24 Set 2026</td>
+
+                  <td>42.840</td>
+
+                  <td>62.450 Kz</td>
+
+                  <td>
+                    <span class="status-badge published"> Publicado </span>
+                  </td>
+
+                  <td>
+                    <button class="table-action">
+                      <i class="bi bi-three-dots"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="release-info">
+                      <div class="release-cover">
+                        <img
+                          src="assets/images/banners/music-02.jpg"
+                          alt="Vibes"
+                        />
+                      </div>
+
+                      <div>
+                        <strong> Vibes </strong>
+
+                        <span> Single </span>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td>12 Set 2026</td>
+
+                  <td>31.520</td>
+
+                  <td>48.120 Kz</td>
+
+                  <td>
+                    <span class="status-badge published"> Publicado </span>
+                  </td>
+
+                  <td>
+                    <button class="table-action">
+                      <i class="bi bi-three-dots"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="release-info">
+                      <div class="release-cover">
+                        <img
+                          src="assets/images/banners/music-03.jpg"
+                          alt="Energy"
+                        />
+                      </div>
+
+                      <div>
+                        <strong> Energy </strong>
+
+                        <span> EP </span>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td>02 Set 2026</td>
+
+                  <td>28.940</td>
+
+                  <td>39.850 Kz</td>
+
+                  <td>
+                    <span class="status-badge published"> Publicado </span>
+                  </td>
+
+                  <td>
+                    <button class="table-action">
+                      <i class="bi bi-three-dots"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- =================================================
+             QUICK ACTIONS
+        ================================================= -->
+
+        <div class="quick-actions" data-aos="fade-up">
+          <div class="quick-action-title">
+            <span class="panel-label"> ACÇÕES RÁPIDAS </span>
+
+            <h3>O que queres fazer?</h3>
+          </div>
+
+          <a
+    href="pages/distribution.html"
+    class="quick-action-card"
+>
+
+            <div>
+              <strong> Distribuir música </strong>
+
+              <span> Envia um novo lançamento </span>
+            </div>
+
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
+
+          <a href="#analytics" class="quick-action-card">
+            <div class="quick-action-icon">
+              <i class="bi bi-bar-chart"></i>
+            </div>
+
+            <div>
+              <strong> Ver analytics </strong>
+
+              <span> Analisa o teu desempenho </span>
+            </div>
+
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
+
+          <a href="#revenue" class="quick-action-card">
+            <div class="quick-action-icon">
+              <i class="bi bi-wallet2"></i>
+            </div>
+
+            <div>
+              <strong> Ver rendimentos </strong>
+
+              <span> Consulta os teus ganhos </span>
+            </div>
+
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- =================================================
+         EMPTY SECTIONS
+    ================================================= -->
+
+      <section
+        id="analytics"
+        class="dashboard-section dashboard-placeholder-section"
+      >
+        <div class="placeholder-content">
+          <i class="bi bi-bar-chart"></i>
+
+          <h2>Analytics</h2>
+
+          <p>Aqui ficará o centro de analytics da plataforma.</p>
+        </div>
+      </section>
+
+      <section
+        id="streams"
+        class="dashboard-section dashboard-placeholder-section"
+      >
+        <div class="placeholder-content">
+          <i class="bi bi-headphones"></i>
+
+          <h2>Streams</h2>
+
+          <p>Aqui serão apresentados os dados detalhados de streams.</p>
+        </div>
+      </section>
+
+      <section
+        id="revenue"
+        class="dashboard-section dashboard-placeholder-section"
+      >
+        <div class="placeholder-content">
+          <i class="bi bi-wallet2"></i>
+
+          <h2>Rendimentos</h2>
+
+          <p>Aqui ficará o sistema financeiro do artista.</p>
+        </div>
+      </section>
+
+      <section
+        id="releases"
+        class="dashboard-section dashboard-placeholder-section"
+      >
+        <div class="placeholder-content">
+          <i class="bi bi-disc"></i>
+
+          <h2>Lançamentos</h2>
+
+          <p>Gestão dos lançamentos musicais.</p>
+        </div>
+      </section>
+
+      <section
+        id="artists"
+        class="dashboard-section dashboard-placeholder-section"
+      >
+        <div class="placeholder-content">
+          <i class="bi bi-people"></i>
+
+          <h2>Artistas</h2>
+
+          <p>Gestão dos artistas associados à conta.</p>
+        </div>
+      </section>
+
+      <section
+        id="distribution"
+        class="dashboard-section dashboard-placeholder-section"
+      >
+        <div class="placeholder-content">
+          <i class="bi bi-cloud-arrow-up"></i>
+
+          <h2>Distribuição</h2>
+
+          <p>Área para enviar e distribuir novos lançamentos.</p>
+        </div>
+      </section>
+
+      <section
+        id="profile"
+        class="dashboard-section dashboard-placeholder-section"
+      >
+        <div class="placeholder-content">
+          <i class="bi bi-person"></i>
+
+          <h2>Meu perfil</h2>
+
+          <p>Gestão das informações do perfil.</p>
+        </div>
+      </section>
+
+      <section
+        id="settings"
+        class="dashboard-section dashboard-placeholder-section"
+      >
+        <div class="placeholder-content">
+          <i class="bi bi-gear"></i>
+
+          <h2>Definições</h2>
+
+          <p>Configurações da conta e da plataforma.</p>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+
+      <footer class="dashboard-footer">
+        <span> © 2026 FREEzone. Todos os direitos reservados. </span>
+
+        <div>
+          <a href="#"> Termos </a>
+
+          <a href="#"> Privacidade </a>
+
+          <a href="#"> Suporte </a>
+        </div>
+      </footer>
+    </main>
+
+    <!-- =====================================================
+     SCRIPTS
+===================================================== -->
+
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="assets/js/dashboard.js"></script>
+  </body>
+</html>
