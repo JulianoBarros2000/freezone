@@ -1,0 +1,25 @@
+{
+  "name": "freezone",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "freezone",
+    "music",
+    "sounds"
+  ],
+  "homepage": "https://github.com/JulianoBarros2000/freezone#readme",
+  "bugs": {
+    "url": "https://github.com/JulianoBarros2000/freezone/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulianoBarros2000/freezone.git"
+  },
+  "license": "ISC",
+  "author": "Juliano Barros Dev",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon ./server.js"
+  }
+}
