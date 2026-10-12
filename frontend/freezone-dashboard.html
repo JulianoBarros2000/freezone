@@ -1,0 +1,1949 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description" content="Dashboard da plataforma musical" />
+
+    <title>Dashboard — FREEZONE</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <link rel="stylesheet" href="assets/css/freezone-dashboard.css" />
+  </head>
+
+  <body class="dashboard-body">
+    <!-- =====================================================
+     BACKGROUND EFFECTS
+===================================================== -->
+
+    <div class="dashboard-background">
+      <div class="dashboard-glow dashboard-glow-1"></div>
+      <div class="dashboard-glow dashboard-glow-2"></div>
+      <div class="dashboard-grid"></div>
+    </div>
+
+    <!-- =====================================================
+     MOBILE HEADER
+===================================================== -->
+
+    <header class="dashboard-mobile-header">
+      <button
+        class="dashboard-menu-btn"
+        id="dashboardMenuBtn"
+        aria-label="Abrir menu"
+      >
+        <i class="bi bi-list"></i>
+      </button>
+
+      <a href="index.html" class="dashboard-logo"> FREE<span>zone</span> </a>
+
+      <button
+        class="dashboard-notification-btn"
+        id="mobileNotificationBtn"
+        aria-label="Notificações"
+      >
+        <i class="bi bi-bell"></i>
+        <span class="notification-dot"></span>
+      </button>
+    </header>
+
+    <!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+    <aside class="dashboard-sidebar" id="dashboardSidebar">
+      <!-- Logo -->
+
+      <div class="sidebar-logo-wrapper">
+        <a href="index.html" class="sidebar-logo"> FREE<span>ZONE</span> </a>
+
+        <button
+          class="sidebar-close"
+          id="sidebarClose"
+          aria-label="Fechar menu"
+        >
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <!-- User -->
+
+      <div class="sidebar-user">
+        <div class="sidebar-avatar">
+          <span id="sidebarUserInitial">J</span>
+        </div>
+
+        <div class="sidebar-user-info">
+          <strong id="sidebarUserName"> Sténio Mulenessa </strong>
+
+          <span id="sidebarUserRole"> Artista </span>
+        </div>
+
+        <button class="sidebar-user-menu" id="userMenuBtn">
+          <i class="bi bi-three-dots-vertical"></i>
+        </button>
+      </div>
+
+      <!-- Navigation -->
+
+      <nav class="dashboard-navigation">
+        <span class="navigation-label"> PRINCIPAL </span>
+
+        <a
+          href="#overview"
+          class="dashboard-nav-link active"
+          data-section="overview"
+        >
+          <i class="bi bi-grid-1x2-fill"></i>
+          <span>Visão geral</span>
+        </a>
+
+        <a
+          href="#analytics"
+          class="dashboard-nav-link"
+          data-section="analytics"
+        >
+          <i class="bi bi-bar-chart-fill"></i>
+          <span>Analytics</span>
+        </a>
+
+        <a href="#streams" class="dashboard-nav-link" data-section="streams">
+          <i class="bi bi-headphones"></i>
+          <span>Streams</span>
+        </a>
+
+        <a href="#revenue" class="dashboard-nav-link" data-section="revenue">
+          <i class="bi bi-wallet2"></i>
+          <span>Rendimentos</span>
+        </a>
+
+        <span class="navigation-label"> MÚSICA </span>
+
+        <a href="#releases" class="dashboard-nav-link" data-section="releases">
+          <i class="bi bi-disc"></i>
+          <span>Lançamentos</span>
+        </a>
+
+        <a href="#artists" class="dashboard-nav-link" data-section="artists">
+          <i class="bi bi-people"></i>
+          <span>Artistas</span>
+        </a>
+
+        <a
+          href="#distribution"
+          class="dashboard-nav-link"
+          data-section="distribution"
+        >
+          <i class="bi bi-cloud-arrow-up"></i>
+          <span>Distribuição</span>
+        </a>
+
+        <span class="navigation-label"> CONTA </span>
+
+        <a href="#profile" class="dashboard-nav-link" data-section="profile">
+          <i class="bi bi-person"></i>
+          <span>Meu perfil</span>
+        </a>
+
+        <a href="#settings" class="dashboard-nav-link" data-section="settings">
+          <i class="bi bi-gear"></i>
+          <span>Definições</span>
+        </a>
+      </nav>
+
+      <!-- Bottom -->
+
+      <div class="sidebar-bottom">
+        <a href="index.html" class="sidebar-home-link">
+          <i class="bi bi-house"></i>
+          <span>Voltar ao site</span>
+        </a>
+
+        <button class="sidebar-logout" id="logoutBtn">
+          <i class="bi bi-box-arrow-right"></i>
+          <span>Terminar sessão</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Overlay mobile -->
+
+    <div class="dashboard-overlay" id="dashboardOverlay"></div>
+
+    <!-- =====================================================
+     MAIN
+===================================================== -->
+
+    <main class="dashboard-main">
+      <!-- TOPBAR -->
+
+      <div class="dashboard-topbar">
+        <div>
+          <p class="dashboard-breadcrumb">Dashboard</p>
+
+          <h1>
+            Olá, <span id="dashboardUserName">Sténio</span>
+            <span class="wave">👋</span>
+          </h1>
+
+          <p class="dashboard-subtitle">
+            Aqui está o resumo da tua actividade musical.
+          </p>
+        </div>
+
+        <div class="dashboard-top-actions">
+          <!-- Search -->
+
+          <button class="top-action-btn" id="searchBtn" title="Pesquisar">
+            <i class="bi bi-search"></i>
+          </button>
+
+          <!-- Notifications -->
+
+          <button
+            class="top-action-btn notification-btn"
+            id="notificationBtn"
+            title="Notificações"
+          >
+            <i class="bi bi-bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+
+          <!-- Avatar -->
+
+          <button class="dashboard-profile-button" id="profileButton">
+            <div class="dashboard-avatar">
+              <span id="dashboardAvatarInitial"> S </span>
+            </div>
+
+            <i class="bi bi-chevron-down"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- =================================================
+         OVERVIEW
+    ================================================= -->
+
+      <section id="overview" class="dashboard-section">
+        <!-- Welcome card -->
+
+        <div class="dashboard-welcome-card" data-aos="fade-up">
+          <div class="welcome-content">
+            <span class="welcome-label"> RESUMO DA CONTA </span>
+
+            <h2>
+              A tua música está a chegar
+              <span>mais longe.</span>
+            </h2>
+
+            <p>
+              Acompanha os teus streams, rendimentos, lançamentos e crescimento
+              numa única plataforma.
+            </p>
+
+            <a href="pages/distribution.html" class="dashboard-primary-btn">
+              <i class="bi bi-cloud-arrow-up"></i>
+              Distribuir música
+            </a>
+          </div>
+
+          <div class="welcome-decoration">
+            <div class="vinyl-record">
+              <div class="vinyl-center">
+                <span>V</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Statistics -->
+
+        <div class="dashboard-stats-grid">
+          <div
+            class="dashboard-stat-card"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="stat-card-header">
+              <div class="stat-icon purple">
+                <i class="bi bi-headphones"></i>
+              </div>
+
+              <span class="stat-change positive"> +12,8% </span>
+            </div>
+
+            <span class="stat-label"> Streams totais </span>
+
+            <strong class="stat-value"> 128.450 </strong>
+
+            <span class="stat-period"> comparado ao mês passado </span>
+          </div>
+
+          <div
+            class="dashboard-stat-card"
+            data-aos="fade-up"
+            data-aos-delay="150"
+          >
+            <div class="stat-card-header">
+              <div class="stat-icon green">
+                <i class="bi bi-wallet2"></i>
+              </div>
+
+              <span class="stat-change positive"> +8,4% </span>
+            </div>
+
+            <span class="stat-label"> Rendimentos </span>
+
+            <strong class="stat-value"> 184.520 Kz </strong>
+
+            <span class="stat-period"> este mês </span>
+          </div>
+
+          <div
+            class="dashboard-stat-card"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="stat-card-header">
+              <div class="stat-icon blue">
+                <i class="bi bi-people"></i>
+              </div>
+
+              <span class="stat-change positive"> +4,2% </span>
+            </div>
+
+            <span class="stat-label"> Seguidores </span>
+
+            <strong class="stat-value"> 8.642 </strong>
+
+            <span class="stat-period"> em todas as plataformas </span>
+          </div>
+
+          <div
+            class="dashboard-stat-card"
+            data-aos="fade-up"
+            data-aos-delay="250"
+          >
+            <div class="stat-card-header">
+              <div class="stat-icon orange">
+                <i class="bi bi-disc"></i>
+              </div>
+
+              <span class="stat-change neutral"> 0% </span>
+            </div>
+
+            <span class="stat-label"> Lançamentos </span>
+
+            <strong class="stat-value"> 12 </strong>
+
+            <span class="stat-period"> músicas distribuídas </span>
+          </div>
+        </div>
+
+        <!-- Charts -->
+
+        <div class="dashboard-content-grid">
+          <!-- Streams chart -->
+
+          <div class="dashboard-panel chart-panel" data-aos="fade-up">
+            <div class="panel-header">
+              <div>
+                <span class="panel-label"> DESEMPENHO </span>
+
+                <h3>Streams</h3>
+              </div>
+
+              <select class="dashboard-select" id="streamsPeriod">
+                <option value="7">Últimos 7 dias</option>
+
+                <option value="30" selected>Últimos 30 dias</option>
+
+                <option value="90">Últimos 90 dias</option>
+
+                <option value="365">Último ano</option>
+              </select>
+            </div>
+
+            <div class="chart-summary">
+              <strong> 128.450 </strong>
+
+              <span class="positive"> +12,8% </span>
+            </div>
+
+            <div class="chart-container">
+              <canvas id="streamsChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Platforms -->
+
+          <div class="dashboard-panel platforms-panel" data-aos="fade-up">
+            <div class="panel-header">
+              <div>
+                <span class="panel-label"> PLATAFORMAS </span>
+
+                <h3>Onde te ouvem</h3>
+              </div>
+
+              <button class="panel-more-btn">
+                <i class="bi bi-three-dots"></i>
+              </button>
+            </div>
+
+            <div class="platform-chart">
+              <div class="donut-chart">
+                <div class="donut-center">
+                  <strong> 128K </strong>
+
+                  <span> streams </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="platform-list">
+              <div class="platform-item">
+                <span class="platform-dot spotify"></span>
+
+                <span> Spotify </span>
+
+                <strong> 46% </strong>
+              </div>
+
+              <div class="platform-item">
+                <span class="platform-dot apple"></span>
+
+                <span> Apple Music </span>
+
+                <strong> 28% </strong>
+              </div>
+
+              <div class="platform-item">
+                <span class="platform-dot youtube"></span>
+
+                <span> YouTube Music </span>
+
+                <strong> 16% </strong>
+              </div>
+
+              <div class="platform-item">
+                <span class="platform-dot other"></span>
+
+                <span> Outras </span>
+
+                <strong> 10% </strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- =================================================
+             RECENT RELEASES
+        ================================================= -->
+
+        <div class="dashboard-panel releases-panel" data-aos="fade-up">
+          <div class="panel-header">
+            <div>
+              <span class="panel-label"> MÚSICA </span>
+
+              <h3>Lançamentos recentes</h3>
+            </div>
+
+            <a href="#releases" class="panel-link">
+              Ver todos
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="releases-table-wrapper">
+            <table class="releases-table">
+              <thead>
+                <tr>
+                  <th>Música</th>
+
+                  <th>Data</th>
+
+                  <th>Streams</th>
+
+                  <th>Rendimentos</th>
+
+                  <th>Estado</th>
+
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="release-info">
+                      <div class="release-cover">
+                        <img
+                          src="assets/images/banners/music-01.jpg"
+                          alt="Midnight"
+                        />
+                      </div>
+
+                      <div>
+                        <strong> Midnight </strong>
+
+                        <span> Single </span>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td>24 Set 2026</td>
+
+                  <td>42.840</td>
+
+                  <td>62.450 Kz</td>
+
+                  <td>
+                    <span class="status-badge published"> Publicado </span>
+                  </td>
+
+                  <td>
+                    <button class="table-action">
+                      <i class="bi bi-three-dots"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="release-info">
+                      <div class="release-cover">
+                        <img
+                          src="assets/images/banners/music-02.jpg"
+                          alt="Vibes"
+                        />
+                      </div>
+
+                      <div>
+                        <strong> Vibes </strong>
+
+                        <span> Single </span>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td>12 Set 2026</td>
+
+                  <td>31.520</td>
+
+                  <td>48.120 Kz</td>
+
+                  <td>
+                    <span class="status-badge published"> Publicado </span>
+                  </td>
+
+                  <td>
+                    <button class="table-action">
+                      <i class="bi bi-three-dots"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="release-info">
+                      <div class="release-cover">
+                        <img
+                          src="assets/images/banners/music-03.jpg"
+                          alt="Energy"
+                        />
+                      </div>
+
+                      <div>
+                        <strong> Energy </strong>
+
+                        <span> EP </span>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td>02 Set 2026</td>
+
+                  <td>28.940</td>
+
+                  <td>39.850 Kz</td>
+
+                  <td>
+                    <span class="status-badge published"> Publicado </span>
+                  </td>
+
+                  <td>
+                    <button class="table-action">
+                      <i class="bi bi-three-dots"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- =================================================
+             QUICK ACTIONS
+        ================================================= -->
+
+        <div class="quick-actions" data-aos="fade-up">
+          <div class="quick-action-title">
+            <span class="panel-label"> ACÇÕES RÁPIDAS </span>
+
+            <h3>O que queres fazer?</h3>
+          </div>
+
+          <a href="pages/distribution.html" class="quick-action-card">
+            <div>
+              <strong> Distribuir música </strong>
+
+              <span> Envia um novo lançamento </span>
+            </div>
+
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
+
+          <a href="#analytics" class="quick-action-card">
+            <div class="quick-action-icon">
+              <i class="bi bi-bar-chart"></i>
+            </div>
+
+            <div>
+              <strong> Ver analytics </strong>
+
+              <span> Analisa o teu desempenho </span>
+            </div>
+
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
+
+          <a href="#revenue" class="quick-action-card">
+            <div class="quick-action-icon">
+              <i class="bi bi-wallet2"></i>
+            </div>
+
+            <div>
+              <strong> Ver rendimentos </strong>
+
+              <span> Consulta os teus ganhos </span>
+            </div>
+
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- ADVANCED DASHBOARD SECTIONS -->
+
+      <section id="analytics" class="dashboard-section dashboard-real-section">
+        <div class="section-heading-row">
+          <div>
+            <span class="panel-label">PERFORMANCE</span>
+            <h2>Analytics</h2>
+            <p>Acompanha o crescimento da tua música em todos os canais.</p>
+          </div>
+          <select class="dashboard-select js-period">
+            <option>Últimos 30 dias</option>
+            <option>Últimos 90 dias</option>
+            <option>Este ano</option>
+          </select>
+        </div>
+        <div class="dashboard-stats-grid analytics-mini-grid">
+          <article class="dashboard-stat-card">
+            <span class="stat-label">Streams</span
+            ><strong class="stat-value">128.450</strong
+            ><span class="stat-change positive">+18,4%</span>
+          </article>
+          <article class="dashboard-stat-card">
+            <span class="stat-label">Ouvintes</span
+            ><strong class="stat-value">42.680</strong
+            ><span class="stat-change positive">+12,8%</span>
+          </article>
+          <article class="dashboard-stat-card">
+            <span class="stat-label">Seguidores</span
+            ><strong class="stat-value">8.642</strong
+            ><span class="stat-change positive">+9,6%</span>
+          </article>
+          <article class="dashboard-stat-card">
+            <span class="stat-label">Países</span
+            ><strong class="stat-value">18</strong
+            ><span class="stat-change neutral">+3 novos</span>
+          </article>
+        </div>
+        <div class="dashboard-content-grid">
+          <div class="dashboard-panel">
+            <div class="panel-header">
+              <div>
+                <span class="panel-label">EVOLUÇÃO</span>
+                <h3>Streams e ouvintes</h3>
+              </div>
+              <button class="panel-more-btn" title="Mais opções">
+                <i class="bi bi-three-dots"></i>
+              </button>
+            </div>
+            <div class="advanced-chart-container">
+              <canvas id="analyticsChart"></canvas>
+            </div>
+          </div>
+          <div class="dashboard-panel">
+            <div class="panel-header">
+              <div>
+                <span class="panel-label">TOP MERCADOS</span>
+                <h3>Países</h3>
+              </div>
+            </div>
+            <div class="ranking-list">
+              <div><span>🇦🇴 Angola</span><strong>42%</strong></div>
+              <div><span>🇵🇹 Portugal</span><strong>21%</strong></div>
+              <div><span>🇧🇷 Brasil</span><strong>14%</strong></div>
+              <div><span>🇿🇦 África do Sul</span><strong>8%</strong></div>
+              <div><span>🌍 Outros</span><strong>15%</strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="streams" class="dashboard-section dashboard-real-section">
+        <div class="section-heading-row">
+          <div>
+            <span class="panel-label">MÚSICA</span>
+            <h2>Streams</h2>
+            <p>Consulta o desempenho de cada faixa distribuída.</p>
+          </div>
+          <button class="dashboard-outline-btn" data-action="export">
+            <i class="bi bi-download"></i> Exportar
+          </button>
+        </div>
+        <div class="dashboard-panel filter-panel">
+          <div class="filter-row">
+            <input
+              class="dashboard-input js-stream-search"
+              type="search"
+              placeholder="Pesquisar música..."
+            /><select class="dashboard-select">
+              <option>Todas as plataformas</option>
+              <option>Spotify</option>
+              <option>Apple Music</option>
+              <option>YouTube Music</option></select
+            ><select class="dashboard-select">
+              <option>Últimos 30 dias</option>
+              <option>Últimos 90 dias</option>
+              <option>Este ano</option>
+            </select>
+          </div>
+        </div>
+        <div class="dashboard-panel table-panel">
+          <div class="releases-table-wrapper">
+            <table class="releases-table streams-table">
+              <thead>
+                <tr>
+                  <th>Música</th>
+                  <th>Plataforma</th>
+                  <th>Streams</th>
+                  <th>Ouvintes</th>
+                  <th>Variação</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="release-info">
+                      <div class="release-cover">
+                        <img
+                          src="assets/images/banners/music-01.jpg"
+                          alt="Capa"
+                        />
+                      </div>
+                      <div><strong>Meu Lugar</strong><span>Single</span></div>
+                    </div>
+                  </td>
+                  <td>Spotify</td>
+                  <td>54.820</td>
+                  <td>21.450</td>
+                  <td>
+                    <span class="status-badge positive-badge">+24,8%</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="release-info">
+                      <div class="release-cover">
+                        <img
+                          src="assets/images/banners/music-02.jpg"
+                          alt="Capa"
+                        />
+                      </div>
+                      <div><strong>Infinito</strong><span>Single</span></div>
+                    </div>
+                  </td>
+                  <td>Apple Music</td>
+                  <td>31.640</td>
+                  <td>10.220</td>
+                  <td>
+                    <span class="status-badge positive-badge">+15,2%</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="release-info">
+                      <div class="release-cover">
+                        <img
+                          src="assets/images/banners/music-03.jpg"
+                          alt="Capa"
+                        />
+                      </div>
+                      <div><strong>Depois da Chuva</strong><span>EP</span></div>
+                    </div>
+                  </td>
+                  <td>YouTube Music</td>
+                  <td>22.180</td>
+                  <td>7.840</td>
+                  <td>
+                    <span class="status-badge positive-badge">+8,7%</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="revenue" class="dashboard-section dashboard-real-section">
+        <div class="section-heading-row">
+          <div>
+            <span class="panel-label">FINANCEIRO</span>
+            <h2>Rendimentos</h2>
+            <p>Visualiza receitas, saldo e histórico financeiro.</p>
+          </div>
+          <button
+            data-bs-toggle="modal"
+            data-bs-target="#withdrawModal"
+            class="dashboard-primary-btn"
+            data-action="withdraw"
+          >
+            <i class="bi bi-wallet2"></i> Solicitar levantamento
+          </button>
+        </div>
+        <div class="dashboard-stats-grid">
+          <article class="dashboard-stat-card">
+            <span class="stat-label">Saldo disponível</span
+            ><strong class="stat-value">84.520 Kz</strong
+            ><span class="stat-period">Disponível para levantamento</span>
+          </article>
+          <article class="dashboard-stat-card">
+            <span class="stat-label">Receita total</span
+            ><strong class="stat-value">184.520 Kz</strong
+            ><span class="stat-change positive">+16,2%</span>
+          </article>
+          <article class="dashboard-stat-card">
+            <span class="stat-label">Pendente</span
+            ><strong class="stat-value">27.300 Kz</strong
+            ><span class="stat-period">Em processamento</span>
+          </article>
+          <article class="dashboard-stat-card">
+            <span class="stat-label">Último pagamento</span
+            ><strong class="stat-value">50.000 Kz</strong
+            ><span class="stat-period">Setembro 2026</span>
+          </article>
+        </div>
+        <div class="dashboard-content-grid">
+          <div class="dashboard-panel">
+            <div class="panel-header">
+              <div>
+                <span class="panel-label">RECEITAS</span>
+                <h3>Evolução mensal</h3>
+              </div>
+            </div>
+            <div class="advanced-chart-container">
+              <canvas id="revenueChart"></canvas>
+            </div>
+          </div>
+          <div class="dashboard-panel">
+            <div class="panel-header">
+              <div>
+                <span class="panel-label">PAGAMENTOS</span>
+                <h3>Histórico</h3>
+              </div>
+            </div>
+            <div class="payment-list">
+              <div>
+                <span><strong>50.000 Kz</strong><small>30 Set 2026</small></span
+                ><b class="status-badge published">Pago</b>
+              </div>
+              <div>
+                <span><strong>42.500 Kz</strong><small>31 Ago 2026</small></span
+                ><b class="status-badge published">Pago</b>
+              </div>
+              <div>
+                <span><strong>31.800 Kz</strong><small>31 Jul 2026</small></span
+                ><b class="status-badge published">Pago</b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="releases" class="dashboard-section dashboard-real-section">
+        <div class="section-heading-row">
+          <div>
+            <span class="panel-label">CATÁLOGO</span>
+            <h2>Lançamentos</h2>
+            <p>Gere singles, EPs e álbuns da tua conta.</p>
+          </div>
+          <a
+            href="pages/distribution.html"
+            class="dashboard-primary-btn"
+            data-action="new-release"
+          >
+            <i class="bi bi-plus-lg"></i> Novo lançamento
+          </a>
+        </div>
+        <div class="release-cards-grid">
+          <article class="release-card">
+            <img src="assets/images/banners/music-01.jpg" alt="Meu Lugar" />
+            <div>
+              <span class="release-type">SINGLE</span>
+              <h3>Meu Lugar</h3>
+              <p>Publicado em 12 Set 2026</p>
+              <span class="status-badge published">Publicado</span>
+            </div>
+            <button class="table-action" data-action="release-details">
+              <i class="bi bi-three-dots-vertical"></i>
+            </button>
+          </article>
+          <article class="release-card">
+            <img src="assets/images/banners/music-02.jpg" alt="Infinito" />
+            <div>
+              <span class="release-type">SINGLE</span>
+              <h3>Infinito</h3>
+              <p>Publicado em 20 Ago 2026</p>
+              <span class="status-badge published">Publicado</span>
+            </div>
+            <button class="table-action" data-action="release-details">
+              <i class="bi bi-three-dots-vertical"></i>
+            </button>
+          </article>
+          <article class="release-card">
+            <img
+              src="assets/images/banners/music-03.jpg"
+              alt="Depois da Chuva"
+            />
+            <div>
+              <span class="release-type">EP</span>
+              <h3>Depois da Chuva</h3>
+              <p>Em revisão pela equipa</p>
+              <span class="status-badge pending-badge">Em revisão</span>
+            </div>
+            <button class="table-action" data-action="release-details">
+              <i class="bi bi-three-dots-vertical"></i>
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <section id="artists" class="dashboard-section dashboard-real-section">
+        <div class="section-heading-row">
+          <div>
+            <span class="panel-label">EQUIPA</span>
+            <h2>Artistas</h2>
+            <p>Organiza os artistas associados à tua conta.</p>
+          </div>
+          <button
+            data-bs-toggle="modal"
+            data-bs-target="#artistModal"
+            class="dashboard-primary-btn"
+            data-action="new-artist"
+          >
+            <i class="bi bi-person-plus"></i> Adicionar artista
+          </button>
+        </div>
+        <div class="artist-grid">
+          <article class="artist-card">
+            <div class="artist-avatar">JB</div>
+            <div>
+              <h3>Juliano Barros</h3>
+              <p>Artista principal</p>
+              <span>128.450 streams · 8.642 seguidores</span>
+            </div>
+            <button class="table-action">
+              <i class="bi bi-three-dots"></i>
+            </button>
+          </article>
+          <article class="artist-card">
+            <div class="artist-avatar alt">SM</div>
+            <div>
+              <h3>Sténio Mulenessa</h3>
+              <p>Artista associado</p>
+              <span>86.210 streams · 4.128 seguidores</span>
+            </div>
+            <button class="table-action">
+              <i class="bi bi-three-dots"></i>
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <section
+        id="distribution"
+        class="dashboard-section dashboard-real-section"
+      >
+        <div class="section-heading-row">
+          <div>
+            <span class="panel-label">DISTRIBUIÇÃO</span>
+            <h2>Distribuir música</h2>
+            <p>Prepara o próximo lançamento para chegar às plataformas.</p>
+          </div>
+        </div>
+        <div class="distribution-wizard">
+          <div class="wizard-progress">
+            <span class="active">1</span><i></i><span>2</span><i></i
+            ><span>3</span><i></i><span>4</span>
+          </div>
+          <div class="wizard-step active">
+            <div class="wizard-icon"><i class="bi bi-cloud-arrow-up"></i></div>
+            <div>
+              <h3>Começa um novo lançamento</h3>
+              <p>
+                Carrega a capa e os ficheiros de áudio para iniciar a
+                distribuição.
+              </p>
+              <button
+                class="dashboard-primary-btn"
+                data-action="start-distribution"
+              >
+                Começar agora <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+          <div class="distribution-platforms">
+            <span>Disponível para</span><b>Spotify</b><b>Apple Music</b
+            ><b>YouTube Music</b><b>Deezer</b><b>Tidal</b><b>Amazon Music</b>
+          </div>
+        </div>
+        <div class="dashboard-panel table-panel">
+          <div class="panel-header">
+            <div>
+              <span class="panel-label">EM CURSO</span>
+              <h3>Distribuições recentes</h3>
+            </div>
+          </div>
+          <div class="distribution-row">
+            <div class="release-cover">
+              <img src="assets/images/banners/music-03.jpg" alt="Capa" />
+            </div>
+            <div>
+              <strong>Depois da Chuva</strong
+              ><span>Enviado em 02 Out 2026</span>
+            </div>
+            <span class="status-badge pending-badge">Em revisão</span
+            ><button class="table-action">
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="profile" class="dashboard-section dashboard-real-section">
+        <div class="section-heading-row">
+          <div>
+            <span class="panel-label">CONTA</span>
+            <h2>Meu perfil</h2>
+            <p>Mantém os teus dados pessoais e artísticos actualizados.</p>
+          </div>
+          <button class="dashboard-outline-btn" data-action="save-profile">
+            <i class="bi bi-check2"></i> Guardar alterações
+          </button>
+        </div>
+        <div class="profile-layout">
+          <div class="dashboard-panel profile-card">
+            <div class="profile-avatar-large">JB</div>
+            <h3>Juliano Barros</h3>
+            <p>Artista / Criador</p>
+            <button class="dashboard-outline-btn">Alterar fotografia</button>
+          </div>
+          <form class="dashboard-panel profile-form" id="profileForm">
+            <div class="form-grid">
+              <label
+                >Nome completo<input
+                  class="dashboard-input"
+                  name="name"
+                  value="Juliano Barros" /></label
+              ><label
+                >Nome artístico<input
+                  class="dashboard-input"
+                  name="artistName"
+                  value="Artist Name" /></label
+              ><label
+                >Email<input
+                  class="dashboard-input"
+                  name="email"
+                  type="email"
+                  value="juliano@example.com" /></label
+              ><label
+                >Telefone<input
+                  class="dashboard-input"
+                  name="phone"
+                  value="+244 900 000 000" /></label
+              ><label
+                >Localização<input
+                  class="dashboard-input"
+                  name="location"
+                  value="Luanda, Angola" /></label
+              ><label
+                >Website<input
+                  class="dashboard-input"
+                  name="website"
+                  value="https://"
+              /></label>
+            </div>
+            <label
+              >Biografia<textarea class="dashboard-input" rows="5" name="bio">
+Artista e criador de conteúdos digitais.</textarea
+              >
+            </label>
+          </form>
+        </div>
+      </section>
+
+      <section id="settings" class="dashboard-section dashboard-real-section">
+        <div class="section-heading-row">
+          <div>
+            <span class="panel-label">PREFERÊNCIAS</span>
+            <h2>Definições</h2>
+            <p>Controla a experiência e a segurança da tua conta.</p>
+          </div>
+        </div>
+        <div class="settings-grid">
+          <div class="dashboard-panel">
+            <span class="panel-label">NOTIFICAÇÕES</span>
+            <h3>Preferências de comunicação</h3>
+            <div class="setting-item">
+              <div>
+                <strong>Novos relatórios</strong
+                ><span>Receber resumo de performance.</span>
+              </div>
+              <input class="dashboard-switch" type="checkbox" checked />
+            </div>
+            <div class="setting-item">
+              <div>
+                <strong>Pagamentos</strong
+                ><span>Alertas sobre receitas e levantamentos.</span>
+              </div>
+              <input class="dashboard-switch" type="checkbox" checked />
+            </div>
+            <div class="setting-item">
+              <div>
+                <strong>Lançamentos</strong
+                ><span>Actualizações sobre distribuição.</span>
+              </div>
+              <input class="dashboard-switch" type="checkbox" checked />
+            </div>
+          </div>
+          <div class="dashboard-panel">
+            <span class="panel-label">SEGURANÇA</span>
+            <h3>Conta e acesso</h3>
+            <button
+              data-bs-toggle="modal"
+              data-bs-target="#passwordModal"
+              class="setting-button"
+              data-action="change-password"
+            >
+              <i class="bi bi-shield-lock"></i
+              ><span
+                ><strong>Alterar palavra-passe</strong
+                ><small>Actualiza as credenciais da conta</small></span
+              ><i class="bi bi-chevron-right"></i></button
+            ><button
+              data-bs-toggle="modal"
+              data-bs-target="#sessionsModal"
+              class="setting-button"
+              data-action="sessions"
+            >
+              <i class="bi bi-phone"></i
+              ><span
+                ><strong>Sessões activas</strong
+                ><small>Gerir dispositivos conectados</small></span
+              ><i class="bi bi-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+
+      <footer class="dashboard-footer">
+        <span> © 2026 FREEzone. Todos os direitos reservados. </span>
+
+        <div>
+          <a href="#"> Termos </a>
+
+          <a href="#"> Privacidade </a>
+
+          <a href="#"> Suporte </a>
+        </div>
+      </footer>
+
+      <!-- =====================================================
+     MODAL: SOLICITAR LEVANTAMENTO
+===================================================== -->
+      <div
+        class="modal fade"
+        id="withdrawModal"
+        tabindex="-1"
+        aria-labelledby="withdrawModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content dashboard-modal">
+            <div class="modal-header">
+              <div>
+                <span class="modal-icon finance-icon">
+                  <i class="bi bi-wallet2"></i>
+                </span>
+                <h5 class="modal-title" id="withdrawModalLabel">
+                  Solicitar levantamento
+                </h5>
+                <p class="modal-subtitle">
+                  Solicite o levantamento dos seus rendimentos.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Fechar"
+              ></button>
+            </div>
+
+            <form id="withdrawForm">
+              <div class="modal-body">
+                <div class="balance-card">
+                  <span>Saldo disponível</span>
+                  <strong id="withdrawAvailableBalance"> 0,00 Kz </strong>
+                </div>
+
+                <div class="form-group">
+                  <label for="withdrawAmount"> Valor do levantamento </label>
+
+                  <div class="input-money">
+                    <input
+                      type="number"
+                      id="withdrawAmount"
+                      name="amount"
+                      min="1"
+                      step="0.01"
+                      placeholder="0,00"
+                      required
+                    />
+                    <span>Kz</span>
+                  </div>
+
+                  <small id="withdrawAmountError" class="form-error"></small>
+                </div>
+
+                <div class="form-group">
+                  <label for="withdrawMethod"> Método de pagamento </label>
+
+                  <select id="withdrawMethod" name="method" required>
+                    <option value="">Seleccione um método</option>
+                    <option value="bank">Transferência bancária</option>
+                    <option value="mobile">Pagamento móvel</option>
+                  </select>
+                </div>
+
+                <div id="bankDetails" class="payment-details">
+                  <div class="form-group">
+                    <label for="bankName"> Banco </label>
+
+                    <select id="bankName" name="bank">
+                      <option value="">Seleccione o banco</option>
+                      <option value="BAI">BAI</option>
+                      <option value="BFA">BFA</option>
+                      <option value="BIC">BIC</option>
+                      <option value="ATLANTICO">
+                        Banco Millennium Atlântico
+                      </option>
+                      <option value="SOL">Banco Sol</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="accountHolder"> Titular da conta </label>
+
+                    <input
+                      type="text"
+                      id="accountHolder"
+                      name="accountHolder"
+                      placeholder="Nome do titular"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="accountNumber"> Número da conta </label>
+
+                    <input
+                      type="text"
+                      id="accountNumber"
+                      name="accountNumber"
+                      placeholder="Número da conta"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="iban"> IBAN </label>
+
+                    <input
+                      type="text"
+                      id="iban"
+                      name="iban"
+                      placeholder="AO06 0000 0000 0000 0000 0000 0"
+                    />
+                  </div>
+                </div>
+
+                <div class="withdraw-summary">
+                  <div>
+                    <span>Valor solicitado</span>
+                    <strong id="withdrawSummaryAmount"> 0,00 Kz </strong>
+                  </div>
+
+                  <div>
+                    <span>Taxa</span>
+                    <strong id="withdrawFee"> 0,00 Kz </strong>
+                  </div>
+
+                  <div class="summary-total">
+                    <span>Total a receber</span>
+                    <strong id="withdrawTotal"> 0,00 Kz </strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  data-bs-dismiss="modal"
+                >
+                  Cancelar
+                </button>
+
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  id="withdrawSubmit"
+                >
+                  <i class="bi bi-arrow-up-right"></i>
+                  Solicitar levantamento
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- =====================================================
+     MODAL: ADICIONAR ARTISTA
+===================================================== -->
+      <div
+        class="modal fade"
+        id="artistModal"
+        tabindex="-1"
+        aria-labelledby="artistModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content dashboard-modal">
+            <div class="modal-header">
+              <div>
+                <span class="modal-icon artist-icon">
+                  <i class="bi bi-person-plus"></i>
+                </span>
+
+                <h5 class="modal-title" id="artistModalLabel">
+                  Adicionar artista
+                </h5>
+
+                <p class="modal-subtitle">
+                  Adicione um artista à sua equipa ou projecto.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+              ></button>
+            </div>
+
+            <form id="artistForm">
+              <div class="modal-body">
+                <div class="artist-avatar-upload">
+                  <div class="artist-avatar-preview" id="artistAvatarPreview">
+                    <i class="bi bi-person"></i>
+                  </div>
+
+                  <div>
+                    <label for="artistPhoto" class="upload-photo-btn">
+                      <i class="bi bi-camera"></i>
+                      Adicionar fotografia
+                    </label>
+
+                    <input
+                      type="file"
+                      id="artistPhoto"
+                      name="photo"
+                      accept="image/*"
+                      hidden
+                    />
+
+                    <small> JPG, PNG ou WEBP. Máximo 5 MB. </small>
+                  </div>
+                </div>
+
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="artistName"> Nome artístico </label>
+
+                    <input
+                      type="text"
+                      id="artistName"
+                      name="artistName"
+                      placeholder="Ex.: Preto Show"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="artistFullName"> Nome completo </label>
+
+                    <input
+                      type="text"
+                      id="artistFullName"
+                      name="fullName"
+                      placeholder="Nome completo"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="artistEmail"> E-mail </label>
+
+                    <input
+                      type="email"
+                      id="artistEmail"
+                      name="email"
+                      placeholder="artista@email.com"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="artistCountry"> País </label>
+
+                    <select id="artistCountry" name="country">
+                      <option value="">Seleccione o país</option>
+
+                      <option value="AO">Angola</option>
+
+                      <option value="PT">Portugal</option>
+
+                      <option value="BR">Brasil</option>
+
+                      <option value="MZ">Moçambique</option>
+
+                      <option value="CV">Cabo Verde</option>
+
+                      <option value="OTHER">Outro</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="artistGenre"> Género musical </label>
+
+                    <select id="artistGenre" name="genre">
+                      <option value="">Seleccione o género</option>
+
+                      <option value="kuduro">Kuduro</option>
+
+                      <option value="afrobeat">Afrobeats</option>
+
+                      <option value="rap">Rap / Hip-Hop</option>
+
+                      <option value="rnb">R&B</option>
+
+                      <option value="gospel">Gospel</option>
+
+                      <option value="semba">Semba</option>
+
+                      <option value="outro">Outro</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="artistRole"> Papel no projecto </label>
+
+                    <select id="artistRole" name="role">
+                      <option value="">Seleccione o papel</option>
+
+                      <option value="main">Artista principal</option>
+
+                      <option value="featured">Artista convidado</option>
+
+                      <option value="producer">Produtor</option>
+
+                      <option value="composer">Compositor</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="artistNotes"> Observações </label>
+
+                  <textarea
+                    id="artistNotes"
+                    name="notes"
+                    rows="3"
+                    placeholder="Informações adicionais..."
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  data-bs-dismiss="modal"
+                >
+                  Cancelar
+                </button>
+
+                <button type="submit" class="btn btn-primary">
+                  <i class="bi bi-person-plus"></i>
+                  Adicionar artista
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- =====================================================
+     MODAL: ALTERAR PALAVRA-PASSE
+===================================================== -->
+      <div
+        class="modal fade"
+        id="passwordModal"
+        tabindex="-1"
+        aria-labelledby="passwordModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content dashboard-modal">
+            <div class="modal-header">
+              <div>
+                <span class="modal-icon security-icon">
+                  <i class="bi bi-shield-lock"></i>
+                </span>
+
+                <h5 class="modal-title" id="passwordModalLabel">
+                  Alterar palavra-passe
+                </h5>
+
+                <p class="modal-subtitle">Mantenha a sua conta segura.</p>
+              </div>
+
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+              ></button>
+            </div>
+
+            <form id="passwordForm">
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="currentPassword"> Palavra-passe actual </label>
+
+                  <div class="password-input">
+                    <input
+                      type="password"
+                      id="currentPassword"
+                      name="currentPassword"
+                      required
+                    />
+
+                    <button
+                      type="button"
+                      class="toggle-password"
+                      data-target="currentPassword"
+                    >
+                      <i class="bi bi-eye"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="newPassword"> Nova palavra-passe </label>
+
+                  <div class="password-input">
+                    <input
+                      type="password"
+                      id="newPassword"
+                      name="newPassword"
+                      minlength="8"
+                      required
+                    />
+
+                    <button
+                      type="button"
+                      class="toggle-password"
+                      data-target="newPassword"
+                    >
+                      <i class="bi bi-eye"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="password-strength">
+                  <div class="strength-bar">
+                    <span id="strengthProgress"></span>
+                  </div>
+
+                  <span id="strengthText"> Introduza uma palavra-passe </span>
+                </div>
+
+                <ul class="password-requirements">
+                  <li id="lengthRequirement">
+                    <i class="bi bi-circle"></i>
+                    Pelo menos 8 caracteres
+                  </li>
+
+                  <li id="uppercaseRequirement">
+                    <i class="bi bi-circle"></i>
+                    Uma letra maiúscula
+                  </li>
+
+                  <li id="numberRequirement">
+                    <i class="bi bi-circle"></i>
+                    Um número
+                  </li>
+
+                  <li id="specialRequirement">
+                    <i class="bi bi-circle"></i>
+                    Um carácter especial
+                  </li>
+                </ul>
+
+                <div class="form-group">
+                  <label for="confirmPassword">
+                    Confirmar nova palavra-passe
+                  </label>
+
+                  <div class="password-input">
+                    <input
+                      type="password"
+                      id="confirmPassword"
+                      name="confirmPassword"
+                      required
+                    />
+
+                    <button
+                      type="button"
+                      class="toggle-password"
+                      data-target="confirmPassword"
+                    >
+                      <i class="bi bi-eye"></i>
+                    </button>
+                  </div>
+
+                  <small id="passwordMatch" class="form-error"> </small>
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  data-bs-dismiss="modal"
+                >
+                  Cancelar
+                </button>
+
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  id="passwordSubmit"
+                >
+                  <i class="bi bi-check2"></i>
+                  Actualizar palavra-passe
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- =====================================================
+     MODAL: SESSÕES ACTIVAS
+===================================================== -->
+      <div
+        class="modal fade"
+        id="sessionsModal"
+        tabindex="-1"
+        aria-labelledby="sessionsModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content dashboard-modal">
+            <div class="modal-header">
+              <div>
+                <span class="modal-icon session-icon">
+                  <i class="bi bi-phone"></i>
+                </span>
+
+                <h5 class="modal-title" id="sessionsModalLabel">
+                  Sessões activas
+                </h5>
+
+                <p class="modal-subtitle">
+                  Consulte os dispositivos onde a sua conta está activa.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+              ></button>
+            </div>
+
+            <div class="modal-body">
+              <div class="sessions-security-alert">
+                <i class="bi bi-shield-check"></i>
+
+                <div>
+                  <strong>A sua segurança é importante</strong>
+
+                  <p>Se não reconhecer uma sessão, termine-a imediatamente.</p>
+                </div>
+              </div>
+
+              <div id="activeSessionsList" class="active-sessions-list">
+                <!-- As sessões serão inseridas pelo JavaScript -->
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-danger-outline"
+                id="logoutOtherSessions"
+              >
+                <i class="bi bi-box-arrow-right"></i>
+                Terminar outras sessões
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-light"
+                data-bs-dismiss="modal"
+              >
+                Fechar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =====================================================
+     MODAL DE CONFIRMAÇÃO
+===================================================== -->
+      <div
+        class="modal fade"
+        id="confirmModal"
+        tabindex="-1"
+        aria-labelledby="confirmModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+          <div class="modal-content dashboard-modal confirm-modal">
+            <div class="modal-body text-center">
+              <div class="confirm-icon" id="confirmIcon">
+                <i class="bi bi-exclamation-triangle"></i>
+              </div>
+
+              <h5 id="confirmModalLabel">Confirmar acção</h5>
+
+              <p id="confirmMessage">
+                Tem a certeza de que pretende continuar?
+              </p>
+
+              <div class="confirm-actions">
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  data-bs-dismiss="modal"
+                >
+                  Cancelar
+                </button>
+
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  id="confirmActionBtn"
+                >
+                  Confirmar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =====================================================
+     MODAL DE SUCESSO
+===================================================== -->
+      <div
+        class="modal fade"
+        id="successModal"
+        tabindex="-1"
+        aria-labelledby="successModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+          <div class="modal-content dashboard-modal feedback-modal">
+            <div class="modal-body text-center">
+              <div class="feedback-icon success-feedback">
+                <i class="bi bi-check-lg"></i>
+              </div>
+
+              <h5 id="successModalLabel">Operação concluída</h5>
+
+              <p id="successMessage">A operação foi realizada com sucesso.</p>
+
+              <button
+                type="button"
+                class="btn btn-primary w-100"
+                data-bs-dismiss="modal"
+              >
+                Continuar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =====================================================
+     MODAL DE ERRO
+===================================================== -->
+      <div
+        class="modal fade"
+        id="errorModal"
+        tabindex="-1"
+        aria-labelledby="errorModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+          <div class="modal-content dashboard-modal feedback-modal">
+            <div class="modal-body text-center">
+              <div class="feedback-icon error-feedback">
+                <i class="bi bi-x-lg"></i>
+              </div>
+
+              <h5 id="errorModalLabel">Ocorreu um erro</h5>
+
+              <p id="errorMessage">Não foi possível concluir a operação.</p>
+
+              <button
+                type="button"
+                class="btn btn-light w-100"
+                data-bs-dismiss="modal"
+              >
+                Fechar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =====================================================
+     MODAL: LOGOUT
+===================================================== -->
+      <div
+        class="modal fade"
+        id="logoutModal"
+        tabindex="-1"
+        aria-labelledby="logoutModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+          <div class="modal-content dashboard-modal">
+            <div class="modal-body text-center">
+              <div class="confirm-icon logout-icon">
+                <i class="bi bi-box-arrow-right"></i>
+              </div>
+
+              <h5 id="logoutModalLabel">Terminar sessão?</h5>
+
+              <p>Tem a certeza de que pretende sair da sua conta?</p>
+
+              <div class="confirm-actions">
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  data-bs-dismiss="modal"
+                >
+                  Cancelar
+                </button>
+
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  id="logoutConfirmBtn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#logoutModal"
+                >
+                  Terminar sessão
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- =====================================================
+     SCRIPTS
+===================================================== -->
+
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="assets/js/dashboard.js"></script>
+  </body>
+</html>
