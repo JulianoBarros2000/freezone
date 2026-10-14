@@ -1,0 +1,1626 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Termos de Utilização e Política de Privacidade da FREEZONE, plataforma de distribuição musical.">
+  <meta name="theme-color" content="#121212">
+  <title>Termos e Privacidade | FREEZONE</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #8a2be2;
+      --primary-light: #a855f7;
+      --primary-dark: #6a0dad;
+      --background: #121212;
+      --surface: #1b1b1f;
+      --surface-light: #232329;
+      --border: rgba(255,255,255,.09);
+      --text: #f4f1f8;
+      --muted: #a6a1b2;
+      --success: #a78bfa;
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      line-height: 1.75;
+    }
+
+    a {
+      color: #c4a1ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #e0caff;
+    }
+
+    .navbar {
+      background: rgba(18,18,18,.9);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -.8px;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), #b45cff);
+      box-shadow: 0 0 25px rgba(138,43,226,.25);
+    }
+
+    .brand:hover {
+      color: white;
+    }
+
+    .navbar .nav-link {
+      color: #d2ceda;
+      font-size: .9rem;
+    }
+
+    .navbar .nav-link:hover {
+      color: white;
+    }
+
+    .btn-freezone {
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border: 0;
+      border-radius: 10px;
+      padding: 10px 17px;
+      font-weight: 600;
+    }
+
+    .btn-freezone:hover {
+      color: white;
+      filter: brightness(1.15);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 90px 0 72px;
+      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(ellipse at 15% 5%, rgba(138,43,226,.2), transparent 48%),
+        radial-gradient(ellipse at 85% 20%, rgba(106,13,173,.16), transparent 45%),
+        var(--background);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 13px;
+      border: 1px solid rgba(168,85,247,.3);
+      border-radius: 30px;
+      color: #d8b9ff;
+      background: rgba(138,43,226,.1);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 850px;
+      margin: 22px 0;
+      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      line-height: 1.08;
+      letter-spacing: -.055em;
+      font-weight: 800;
+    }
+
+    .gradient-text {
+      color: #c69aff;
+      background: linear-gradient(90deg, #c69aff, #8a2be2, #e0b8ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-description {
+      max-width: 690px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    .hero-meta i {
+      color: #c69aff;
+      margin-right: 5px;
+    }
+
+    .document-layout {
+      display: grid;
+      grid-template-columns: 270px minmax(0, 1fr);
+      gap: 32px;
+      padding-top: 48px;
+      padding-bottom: 80px;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 100px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      background: var(--surface);
+    }
+
+    .sidebar-label {
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: .73rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .document-tabs {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 25px;
+    }
+
+    .document-tab {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      width: 100%;
+      border: 1px solid transparent;
+      border-radius: 11px;
+      padding: 12px;
+      background: transparent;
+      color: #d0cbd8;
+      text-align: left;
+      font-size: .88rem;
+      font-weight: 600;
+      transition: .2s ease;
+    }
+
+    .document-tab i {
+      font-size: 1.1rem;
+    }
+
+    .document-tab:hover,
+    .document-tab.active {
+      color: white;
+      background: rgba(138,43,226,.16);
+      border-color: rgba(168,85,247,.25);
+    }
+
+    .document-tab.active i {
+      color: #c69aff;
+    }
+
+    .toc {
+      display: grid;
+      gap: 4px;
+      max-height: 430px;
+      overflow-y: auto;
+    }
+
+    .toc a {
+      border-left: 2px solid transparent;
+      padding: 7px 9px;
+      color: var(--muted);
+      font-size: .8rem;
+      line-height: 1.5;
+    }
+
+    .toc a:hover,
+    .toc a.active {
+      color: white;
+      border-left-color: var(--primary-light);
+      background: rgba(138,43,226,.07);
+    }
+
+    .sidebar-note {
+      margin-top: 22px;
+      padding-top: 17px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .77rem;
+    }
+
+    .document-main {
+      min-width: 0;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .toolbar .form-control {
+      max-width: 330px;
+      min-width: 200px;
+      padding: 11px 14px;
+      color: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+    }
+
+    .toolbar .form-control::placeholder {
+      color: #827c8d;
+    }
+
+    .toolbar .form-control:focus {
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 .2rem rgba(138,43,226,.15);
+    }
+
+    .btn-outline-freezone {
+      padding: 10px 13px;
+      color: #e3d3fa;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: .85rem;
+    }
+
+    .btn-outline-freezone:hover {
+      color: white;
+      border-color: var(--primary-light);
+    }
+
+    .document-card {
+      padding: clamp(24px, 4vw, 52px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(150deg, #1d1d22, #17171b);
+      box-shadow: 0 25px 80px rgba(0,0,0,.15);
+    }
+
+    .document-panel[hidden] {
+      display: none !important;
+    }
+
+    .document-heading {
+      padding-bottom: 28px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .document-heading .icon-box {
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      margin-bottom: 20px;
+      color: #e0caff;
+      border: 1px solid rgba(168,85,247,.3);
+      border-radius: 15px;
+      background: rgba(138,43,226,.14);
+      font-size: 1.45rem;
+    }
+
+    .document-heading h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -.04em;
+    }
+
+    .document-heading p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .legal-section {
+      padding: 8px 0 24px;
+      margin-bottom: 22px;
+      border-bottom: 1px solid rgba(255,255,255,.055);
+      scroll-margin-top: 100px;
+    }
+
+    .legal-section:last-child {
+      border-bottom: 0;
+    }
+
+    .legal-section h3 {
+      margin-bottom: 14px;
+      color: #e0caff;
+      font-size: 1.13rem;
+      font-weight: 700;
+      letter-spacing: -.02em;
+    }
+
+    .legal-section h4 {
+      margin-top: 20px;
+      color: #f1e8ff;
+      font-size: .98rem;
+      font-weight: 700;
+    }
+
+    .legal-section p,
+    .legal-section li {
+      color: #c4bfcd;
+      font-size: .93rem;
+    }
+
+    .legal-section ul {
+      padding-left: 22px;
+    }
+
+    .legal-section li {
+      padding-left: 4px;
+      margin-bottom: 7px;
+    }
+
+    .legal-section strong {
+      color: #f5efff;
+      font-weight: 600;
+    }
+
+    .info-note {
+      margin: 18px 0;
+      padding: 17px 19px;
+      border: 1px solid rgba(168,85,247,.23);
+      border-left: 3px solid var(--primary-light);
+      border-radius: 10px;
+      background: rgba(138,43,226,.07);
+      color: #d5c9e5;
+      font-size: .87rem;
+    }
+
+    .warning-note {
+      border-color: rgba(251,191,36,.2);
+      border-left-color: #fbbf24;
+      background: rgba(251,191,36,.05);
+    }
+
+    .contact-card {
+      padding: 22px;
+      border: 1px solid rgba(168,85,247,.25);
+      border-radius: 14px;
+      background: rgba(138,43,226,.08);
+    }
+
+    .contact-card h3 {
+      color: white;
+    }
+
+    .footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      background: #0e0e10;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--muted);
+      font-size: .83rem;
+    }
+
+    .footer a:hover {
+      color: white;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .search-match {
+      outline: 1px solid rgba(168,85,247,.35);
+      outline-offset: 5px;
+      border-radius: 3px;
+    }
+
+    .no-results {
+      padding: 25px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 991px) {
+      .document-layout {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .toc {
+        max-height: 220px;
+      }
+
+      .hero {
+        padding: 65px 0 50px;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .hero {
+        padding-top: 48px;
+      }
+
+      .hero-meta {
+        gap: 10px 16px;
+      }
+
+      .document-card {
+        padding: 22px 18px;
+      }
+
+      .toolbar {
+        align-items: stretch;
+      }
+
+      .toolbar .form-control {
+        max-width: none;
+        width: 100%;
+      }
+    }
+
+    @media print {
+      body {
+        color: #111;
+        background: white;
+        font-family: Arial, sans-serif;
+      }
+
+      .navbar,
+      .hero,
+      .sidebar,
+      .toolbar,
+      .footer,
+      .no-print {
+        display: none !important;
+      }
+
+      .container {
+        max-width: 100%;
+      }
+
+      .document-layout {
+        display: block;
+        padding: 0;
+      }
+
+      .document-card {
+        padding: 0;
+        color: #111;
+        border: 0;
+        background: white;
+        box-shadow: none;
+      }
+
+      .document-panel[hidden] {
+        display: none !important;
+      }
+
+      .legal-section p,
+      .legal-section li,
+      .legal-section h3,
+      .legal-section h4,
+      .document-heading h2,
+      .document-heading p,
+      .legal-section strong {
+        color: #111;
+      }
+
+      a {
+        color: #111;
+        text-decoration: underline;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container py-2">
+      <a class="brand" href="../index.html" aria-label="FREEZONE - página inicial">
+        <span class="brand-mark"><i class="bi bi-soundwave"></i></span>
+        FREEZONE
+      </a>
+
+      <button class="navbar-toggler border-secondary"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#mainNavbar"
+              aria-controls="mainNavbar"
+              aria-expanded="false"
+              aria-label="Abrir navegação">
+        <i class="bi bi-list text-white fs-3"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 mt-3 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Página inicial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#terms" data-switch="terms">Termos de utilização</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#privacy" data-switch="privacy">Privacidade</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-freezone" href="login.html">
+              Aceder à plataforma <i class="bi bi-arrow-up-right ms-1"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <span class="eyebrow">
+        <i class="bi bi-shield-check"></i>
+        Transparência e confiança
+      </span>
+
+      <h1>
+        As regras da nossa comunidade.
+        <span class="gradient-text">A tua música, os teus direitos.</span>
+      </h1>
+
+      <p class="hero-description">
+        Conhece as condições de utilização da FREEZONE e como os teus
+        dados pessoais são tratados quando utilizas os nossos serviços
+        de gestão e distribuição musical.
+      </p>
+
+      <div class="hero-meta">
+        <span><i class="bi bi-file-earmark-text"></i> Dois documentos</span>
+        <span><i class="bi bi-globe2"></i> Angola</span>
+        <span><i class="bi bi-clock"></i> Leitura estimada: 10–15 minutos</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- DOCUMENTS -->
+  <main class="container document-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-label">Documentos legais</div>
+
+      <div class="document-tabs" role="tablist" aria-label="Documentos">
+        <button class="document-tab active"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                data-document="terms">
+          <i class="bi bi-file-earmark-check"></i>
+          <span>Termos de utilização</span>
+        </button>
+
+        <button class="document-tab"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                data-document="privacy">
+          <i class="bi bi-shield-lock"></i>
+          <span>Política de privacidade</span>
+        </button>
+      </div>
+
+      <div class="sidebar-label">Nesta página</div>
+      <nav class="toc" id="tableOfContents" aria-label="Índice do documento"></nav>
+
+      <div class="sidebar-note">
+        <i class="bi bi-info-circle me-1"></i>
+        Lê atentamente as condições aplicáveis aos teus direitos,
+        à tua conta e aos conteúdos musicais.
+      </div>
+    </aside>
+
+    <!-- CONTENT -->
+    <div class="document-main">
+
+      <div class="toolbar no-print">
+        <input id="documentSearch"
+               type="search"
+               class="form-control"
+               placeholder="Pesquisar neste documento..."
+               aria-label="Pesquisar no documento">
+
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-freezone" id="printDocument" type="button">
+            <i class="bi bi-printer me-1"></i> Imprimir
+          </button>
+
+          <button class="btn btn-outline-freezone" id="topButton" type="button">
+            <i class="bi bi-arrow-up"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="document-card">
+
+        <!-- ================================================= -->
+        <!-- TERMOS DE UTILIZAÇÃO                              -->
+        <!-- ================================================= -->
+
+        <article id="terms" class="document-panel">
+
+          <header class="document-heading">
+            <div class="icon-box"><i class="bi bi-file-earmark-check"></i></div>
+            <h2>Termos de Utilização</h2>
+            <p>
+              Condições gerais aplicáveis ao acesso e à utilização
+              da plataforma FREEZONE.
+            </p>
+            <p class="mt-3 small">
+              <strong>Versão:</strong> 1.0
+              <span class="mx-2">•</span>
+              <strong>Última actualização:</strong>
+              <time datetime="2026-10-14">14 de Outubro de 2026</time>
+            </p>
+          </header>
+
+          <section class="legal-section" id="terms-1">
+            <h3>1. Identificação e âmbito</h3>
+            <p>
+              A FREEZONE é uma plataforma digital concebida para apoiar
+              artistas, músicos, produtores, editoras e outros titulares
+              de direitos na organização, gestão e preparação da distribuição
+              de conteúdos musicais em serviços digitais.
+            </p>
+            <p>
+              Para efeitos destes Termos, a entidade que explora a plataforma
+              será identificada como <strong>Entidade Operadora</strong>.
+              Antes da publicação definitiva deste documento, devem ser
+              preenchidos os seus dados de identificação.
+            </p>
+            <div class="info-note">
+              <strong>Entidade Operadora:</strong> [Inserir denominação legal]
+              <br>
+              <strong>NIF:</strong> [Inserir NIF, quando aplicável]
+              <br>
+              <strong>Morada:</strong> [Inserir endereço completo]
+              <br>
+              <strong>Contacto:</strong> [Inserir e-mail oficial]
+            </div>
+            <p>
+              Estes Termos regulam a utilização do website, das contas de
+              utilizador e das funcionalidades disponibilizadas pela FREEZONE.
+              Serviços específicos podem estar sujeitos a condições adicionais.
+            </p>
+          </section>
+
+          <section class="legal-section" id="terms-2">
+            <h3>2. Aceitação dos termos</h3>
+            <p>
+              Ao criar uma conta, aceder a funcionalidades restritas ou
+              utilizar os serviços da FREEZONE, o utilizador declara que
+              leu e compreendeu estes Termos e que aceita cumprir as
+              condições aplicáveis.
+            </p>
+            <p>
+              Se não concordar com estas condições, o utilizador não deverá
+              utilizar as funcionalidades sujeitas à sua aceitação.
+              Quando a lei exigir consentimento ou confirmação expressa,
+              a FREEZONE deverá recolhê-los através de um mecanismo adequado.
+            </p>
+            <p>
+              A aceitação dos Termos não transfere para a FREEZONE a propriedade
+              das músicas, gravações, composições ou outros conteúdos do utilizador.
+            </p>
+          </section>
+
+          <section class="legal-section" id="terms-3">
+            <h3>3. Elegibilidade e conta</h3>
+            <p>Para utilizar as funcionalidades de conta, o utilizador deve:</p>
+            <ul>
+              <li>Fornecer informações verdadeiras, actuais e suficientemente completas.</li>
+              <li>Ter capacidade legal para celebrar os acordos aplicáveis ou actuar através do representante legal adequado.</li>
+              <li>Manter a confidencialidade das credenciais de acesso.</li>
+              <li>Actualizar os dados relevantes sempre que sofram alterações.</li>
+              <li>Utilizar apenas métodos de autenticação autorizados pela plataforma.</li>
+            </ul>
+            <p>
+              O utilizador deve informar a FREEZONE logo que possível se suspeitar
+              de acesso não autorizado à sua conta. A partilha de palavras-passe
+              e a utilização indevida de contas de terceiros são proibidas.
+            </p>
+            <p>
+              A criação de uma conta não garante a aprovação de um lançamento
+              musical, a aceitação por uma plataforma de streaming ou a obtenção
+              de rendimentos.
+            </p>
+          </section>
+
+          <section class="legal-section" id="terms-4">
+            <h3>4. Descrição dos serviços</h3>
+            <p>Consoante as funcionalidades efectivamente disponibilizadas, a FREEZONE poderá permitir:</p>
+            <ul>
+              <li>Criação e gestão de perfis de artistas.</li>
+              <li>Registo de músicas, singles, EPs, álbuns e metadados.</li>
+              <li>Preparação e submissão de conteúdos para distribuição digital.</li>
+              <li>Acompanhamento de estados de revisão, entrega e publicação.</li>
+              <li>Consulta de estatísticas de desempenho e reproduções.</li>
+              <li>Consulta de relatórios financeiros e royalties, quando disponíveis.</li>
+              <li>Submissão de pedidos de pagamento ou levantamento, caso o serviço esteja activo.</li>
+            </ul>
+            <p>
+              As funcionalidades podem variar de acordo com a fase de desenvolvimento,
+              o tipo de conta, a disponibilidade técnica e os acordos celebrados com
+              prestadores de serviços externos.
+            </p>
+            <div class="info-note">
+              A apresentação de uma funcionalidade na interface não significa,
+              por si só, que o serviço esteja operacional. Os dados de demonstração
+              não representam streams, royalties, saldos ou pagamentos reais.
+            </div>
+          </section>
+
+          <section class="legal-section" id="terms-5">
+            <h3>5. Direitos de autor e propriedade intelectual</h3>
+            <p>
+              O utilizador mantém os direitos de que seja titular sobre as suas
+              obras musicais, gravações, letras, imagens, capas, vídeos e restantes
+              conteúdos, sem prejuízo de licenças ou contratos que tenha celebrado
+              validamente com terceiros.
+            </p>
+            <p>
+              O utilizador é responsável por assegurar que possui os direitos,
+              autorizações e consentimentos necessários para disponibilizar
+              cada conteúdo e solicitar a sua distribuição.
+            </p>
+            <p>Antes de submeter uma música, o utilizador deve verificar, quando aplicável:</p>
+            <ul>
+              <li>Os direitos sobre a composição, letra, melodia e arranjos.</li>
+              <li>Os direitos sobre a gravação sonora e a produção fonográfica.</li>
+              <li>As autorizações para samples, interpolações, beats e instrumentais de terceiros.</li>
+              <li>As autorizações dos artistas intérpretes, produtores e demais participantes.</li>
+              <li>As licenças relativas a fotografias, ilustrações, vídeos e elementos gráficos.</li>
+              <li>A existência de contratos de exclusividade ou outras limitações.</li>
+            </ul>
+            <p>
+              A FREEZONE não se torna proprietária dos conteúdos pelo simples
+              facto de os receber ou processar.
+            </p>
+          </section>
+
+          <section class="legal-section" id="terms-6">
+            <h3>6. Licença limitada para prestação do serviço</h3>
+            <p>
+              Ao enviar conteúdos, o utilizador autoriza a FREEZONE, nos limites
+              necessários à prestação do serviço solicitado, a alojar, armazenar,
+              processar, converter tecnicamente, transmitir e disponibilizar esses
+              conteúdos aos prestadores de serviços envolvidos na distribuição
+              que tenha autorizado.
+            </p>
+            <p>
+              Esta autorização é limitada às finalidades acordadas e não constitui
+              uma cessão geral da propriedade intelectual. O alcance, o território,
+              a duração e as condições de qualquer licença específica de distribuição
+              devem ser definidos no contrato ou no fluxo de autorização aplicável.
+            </p>
+            <p>
+              A FREEZONE não deverá utilizar os conteúdos para finalidades
+              incompatíveis com a prestação do serviço sem uma base legal ou
+              autorização adequada.
+            </p>
+          </section>
+
+          <section class="legal-section" id="terms-7">
+            <h3>7. Conteúdos proibidos e obrigações do utilizador</h3>
+            <p>É proibido utilizar a plataforma para:</p>
+            <ul>
+              <li>Distribuir obras sem os direitos ou autorizações necessários.</li>
+              <li>Apresentar metadados falsos, créditos incorrectos ou identidades enganosas.</li>
+              <li>Manipular reproduções, avaliações, seguidores, relatórios ou sistemas de remuneração.</li>
+              <li>Carregar ficheiros maliciosos ou tentar comprometer a segurança da plataforma.</li>
+              <li>Violar direitos de autor, direitos de personalidade ou direitos de terceiros.</li>
+              <li>Praticar fraude, branqueamento de capitais ou outras actividades ilícitas.</li>
+              <li>Contornar medidas de segurança ou utilizar a plataforma de forma abusiva.</li>
+            </ul>
+            <p>
+              O utilizador compromete-se a cooperar de boa-fé na resolução de
+              reclamações relacionadas com os conteúdos que submeteu.
+            </p>
+          </section>
+
+          <section class="legal-section" id="terms-8">
+            <h3>8. Distribuição e plataformas externas</h3>
+            <p>
+              A distribuição de música pode depender de serviços terceiros,
+              incluindo plataformas de streaming, lojas digitais, agregadores
+              e parceiros técnicos.
+            </p>
+            <p>
+              Cada serviço externo pode aplicar os seus próprios critérios de
+              qualidade, formatos, metadados, direitos, territórios, prazos e
+              políticas de conteúdo. A FREEZONE não pode garantir a aceitação,
+              a data exacta de publicação, a permanência ou a disponibilidade
+              ininterrupta de um lançamento em todos os serviços.
+            </p>
+            <p>
+              Os pedidos podem ser sujeitos a revisão, rejeição, correcção,
+              suspensão ou remoção quando existam motivos técnicos, contratuais,
+              legais ou de conformidade.
+            </p>
+            <p>
+              Os nomes e as marcas de serviços externos pertencem aos respectivos
+              titulares. A sua menção não implica, por si só, uma parceria,
+              patrocínio ou aprovação oficial da FREEZONE.
+            </p>
+          </section>
+
+          <section class="legal-section" id="terms-9">
+            <h3>9. Royalties, relatórios e pagamentos</h3>
+            <p>
+              Os valores associados a reproduções, vendas ou outras utilizações
+              devem basear-se nos relatórios recebidos das fontes relevantes e
+              nas condições contratuais aplicáveis.
+            </p>
+            <p>
+              As estatísticas podem sofrer atrasos, revisões, ajustamentos,
+              deduções ou correcções. Um valor estimado no painel não constitui
+              necessariamente um montante confirmado, disponível ou imediatamente
+              pagável.
+            </p>
+            <p>Antes de disponibilizar pagamentos reais, a FREEZONE deverá informar claramente:</p>
+            <ul>
+              <li>O método e a moeda de pagamento.</li>
+              <li>Os limites mínimos de levantamento, se existirem.</li>
+              <li>As comissões, taxas, deduções e eventuais conversões cambiais.</li>
+              <li>Os requisitos de identificação e validação do beneficiário.</li>
+              <li>Os prazos previstos e as condições para processar um pedido.</li>
+              <li>Os critérios de resolução de divergências nos relatórios financeiros.</li>
+            </ul>
+            <p>
+              Nenhum rendimento ou prazo de pagamento é garantido apenas com
+              base numa estimativa apresentada na interface. As condições
+              financeiras definitivas devem constar dos termos comerciais
+              ou do contrato aplicável.
+            </p>
+          </section>
+
+          <section class="legal-section" id="terms-10">
+            <h3>10. Taxas e condições comerciais</h3>
+            <p>
+              Quaisquer preços, comissões, planos, subscrições ou taxas aplicáveis
+              devem ser apresentados ao utilizador antes da contratação ou da
+              confirmação da operação relevante.
+            </p>
+            <p>
+              A FREEZONE não deverá cobrar valores que não tenham sido devidamente
+              informados e aceites nos termos legalmente exigíveis. Alterações
+              às condições comerciais deverão ser comunicadas de forma adequada,
+              respeitando os contratos existentes e a legislação aplicável.
+            </p>
+            <p>
+              Caso uma funcionalidade ainda não esteja operacional, a interface
+              deverá distinguir claramente demonstrações de operações comerciais reais.
+            </p>
+          </section>
+
+          <section class="legal-section" id="terms-11">
+            <h3>11. Disponibilidade, manutenção e segurança</h3>
+            <p>
+              A FREEZONE procurará manter os serviços disponíveis e protegidos,
+              mas não garante funcionamento ininterrupto, ausência absoluta de
+              erros ou disponibilidade permanente de serviços externos.
+            </p>
+            <p>
+              Podem ocorrer interrupções para manutenção, actualizações,
+              resposta a incidentes, exigências legais ou situações fora do
+              controlo razoável da entidade operadora.
+            </p>
+            <p>
+              O utilizador deve manter os seus dispositivos actualizados,
+              proteger as credenciais e utilizar ligações e equipamentos seguros.
+              Estas medidas não substituem as obrigações de segurança que cabem
+              à entidade operadora.
+            </p>
+          </section>
+
+          <section class="legal-section" id="terms-12">
+            <h3>12. Suspensão e encerramento de contas</h3>
+            <p>
+              Uma conta poderá ser restringida, suspensa ou encerrada quando
+              exista fundamento legítimo, incluindo violação destes Termos,
+              suspeita fundamentada de fraude, risco de segurança, reclamação
+              de direitos, ordem de autoridade competente ou obrigação legal.
+            </p>
+            <p>
+              Sempre que seja legalmente possível e adequado, o utilizador será
+              informado dos motivos e das medidas aplicadas, podendo apresentar
+              esclarecimentos ou contestar a decisão através dos canais de suporte.
+            </p>
+            <p>
+              O encerramento de uma conta não elimina automaticamente obrigações
+              contratuais pendentes, direitos de terceiros ou deveres legais de
+              conservação de informação. Os conteúdos e dados serão tratados
+              conforme os contratos e as regras de conservação aplicáveis.
+            </p>
+          </section>
+
+          <section class="legal-section" id="terms-13">
+            <h3>13. Responsabilidade</h3>
+            <p>
+              O utilizador é responsável pela exactidão das informações fornecidas,
+              pela legitimidade dos conteúdos submetidos e pelo cumprimento das
+              obrigações que assumiu perante colaboradores, titulares de direitos
+              e terceiros.
+            </p>
+            <p>
+              Na medida permitida pela lei aplicável, a FREEZONE não será
+              responsável por decisões independentes de plataformas externas,
+              indisponibilidade de serviços de terceiros ou prejuízos decorrentes
+              de informações incorrectas fornecidas pelo utilizador.
+            </p>
+            <p>
+              Nada nestes Termos exclui ou limita responsabilidades que não
+              possam ser legalmente excluídas ou limitadas, nem prejudica os
+              direitos imperativos dos utilizadores.
+            </p>
+          </section>
+
+          <section class="legal-section" id="terms-14">
+            <h3>14. Alterações aos Termos</h3>
+            <p>
+              A FREEZONE poderá actualizar estes Termos para reflectir alterações
+              nos serviços, na segurança, nos contratos ou na legislação aplicável.
+              A versão em vigor será identificada nesta página pela data da
+              última actualização.
+            </p>
+            <p>
+              Quando as alterações forem materiais, será prestada informação
+              adequada e, quando necessário, solicitado novo consentimento.
+              A utilização continuada da plataforma não substitui consentimentos
+              expressos exigidos por lei.
+            </p>
+          </section>
+
+          <section class="legal-section" id="terms-15">
+            <h3>15. Lei aplicável e resolução de conflitos</h3>
+            <p>
+              Estes Termos devem ser interpretados de acordo com a legislação
+              aplicável, incluindo, quando pertinente, a legislação da República
+              de Angola.
+            </p>
+            <p>
+              As partes procurarão resolver divergências de boa-fé através dos
+              canais de contacto disponíveis. Na ausência de acordo, poderão
+              recorrer aos mecanismos de resolução de conflitos e aos tribunais
+              competentes, respeitando as normas legais imperativas aplicáveis.
+            </p>
+          </section>
+
+          <section class="legal-section" id="terms-16">
+            <h3>16. Contacto</h3>
+            <p>
+              Para dúvidas sobre estes Termos, reclamações ou questões
+              relacionadas com a utilização da plataforma, contacta a FREEZONE
+              através dos dados oficiais a inserir antes da publicação.
+            </p>
+            <div class="contact-card">
+              <h3 class="h5">Equipa FREEZONE</h3>
+              <p class="mb-1"><strong>E-mail:</strong> [Inserir e-mail oficial]</p>
+              <p class="mb-1"><strong>Morada:</strong> [Inserir endereço]</p>
+              <p class="mb-0"><strong>Horário de atendimento:</strong> [Inserir horário]</p>
+            </div>
+          </section>
+
+        </article>
+
+        <!-- ================================================= -->
+        <!-- POLÍTICA DE PRIVACIDADE                           -->
+        <!-- ================================================= -->
+
+        <article id="privacy" class="document-panel" hidden>
+
+          <header class="document-heading">
+            <div class="icon-box"><i class="bi bi-shield-lock"></i></div>
+            <h2>Política de Privacidade</h2>
+            <p>
+              Como a FREEZONE recolhe, utiliza, conserva e protege
+              os dados pessoais dos seus utilizadores.
+            </p>
+            <p class="mt-3 small">
+              <strong>Versão:</strong> 1.0
+              <span class="mx-2">•</span>
+              <strong>Última actualização:</strong>
+              <time datetime="2026-10-14">14 de Outubro de 2026</time>
+            </p>
+          </header>
+
+          <section class="legal-section" id="privacy-1">
+            <h3>1. Objectivo desta Política</h3>
+            <p>
+              Esta Política explica como a FREEZONE pretende tratar os dados
+              pessoais recolhidos através do website, das contas de utilizador
+              e dos serviços de gestão e distribuição musical.
+            </p>
+            <p>
+              O tratamento efectivo depende das funcionalidades activadas,
+              das tecnologias utilizadas e dos serviços externos integrados.
+              Esta Política deve ser ajustada às práticas reais antes de ser
+              publicada como declaração definitiva.
+            </p>
+          </section>
+
+          <section class="legal-section" id="privacy-2">
+            <h3>2. Responsável pelo tratamento</h3>
+            <p>
+              O responsável pelo tratamento é a entidade que determina as
+              finalidades e os meios do tratamento dos dados pessoais.
+              Os seus dados devem ser preenchidos antes da publicação.
+            </p>
+            <div class="info-note">
+              <strong>Responsável:</strong> [Inserir denominação legal]
+              <br>
+              <strong>Morada:</strong> [Inserir endereço completo]
+              <br>
+              <strong>Contacto de privacidade:</strong> [Inserir e-mail]
+              <br>
+              <strong>NIF:</strong> [Inserir NIF, quando aplicável]
+            </div>
+          </section>
+
+          <section class="legal-section" id="privacy-3">
+            <h3>3. Categorias de dados que podem ser tratados</h3>
+
+            <h4>3.1. Dados de identificação e contacto</h4>
+            <ul>
+              <li>Nome e apelido.</li>
+              <li>Endereço de correio electrónico.</li>
+              <li>Número de telefone, quando fornecido.</li>
+              <li>Nome artístico e informações profissionais.</li>
+              <li>Fotografia de perfil e biografia.</li>
+            </ul>
+
+            <h4>3.2. Dados de conta e segurança</h4>
+            <ul>
+              <li>Identificador da conta e preferências.</li>
+              <li>Registos de autenticação e sessões.</li>
+              <li>Informações técnicas necessárias à protecção da conta.</li>
+              <li>Registos de actividade relevantes para a segurança e auditoria.</li>
+            </ul>
+
+            <h4>3.3. Conteúdos musicais e dados profissionais</h4>
+            <ul>
+              <li>Ficheiros de áudio, capas, vídeos e metadados submetidos.</li>
+              <li>Créditos de autores, compositores, intérpretes e produtores.</li>
+              <li>Informações sobre lançamentos e respectivas plataformas de destino.</li>
+              <li>Relatórios de desempenho recebidos de parceiros, quando aplicável.</li>
+            </ul>
+
+            <h4>3.4. Dados financeiros e de pagamento</h4>
+            <p>
+              Quando existirem pagamentos reais, poderão ser tratados dados
+              necessários à identificação do beneficiário, validação de pedidos,
+              processamento de pagamentos, prevenção de fraude e cumprimento
+              de obrigações legais.
+            </p>
+            <p>
+              Os dados financeiros específicos recolhidos dependerão do método
+              de pagamento e dos prestadores utilizados. A FREEZONE deverá
+              evitar recolher informação financeira que não seja necessária.
+            </p>
+
+            <h4>3.5. Dados técnicos</h4>
+            <p>
+              Dependendo da configuração técnica, poderão ser registados
+              endereço IP, tipo de navegador, sistema operativo, datas de acesso,
+              registos de erros e informação necessária ao funcionamento e à
+              segurança do serviço.
+            </p>
+          </section>
+
+          <section class="legal-section" id="privacy-4">
+            <h3>4. Finalidades do tratamento</h3>
+            <p>Os dados poderão ser tratados, conforme a funcionalidade utilizada, para:</p>
+            <ul>
+              <li>Criar, administrar e proteger contas.</li>
+              <li>Permitir a gestão de artistas, músicas e lançamentos.</li>
+              <li>Preparar e executar pedidos de distribuição autorizados.</li>
+              <li>Disponibilizar estatísticas e relatórios solicitados.</li>
+              <li>Gerir pedidos de suporte, reclamações e comunicações.</li>
+              <li>Processar pagamentos e reconciliar relatórios financeiros, quando aplicável.</li>
+              <li>Prevenir fraude, abuso, acessos indevidos e incidentes de segurança.</li>
+              <li>Cumprir obrigações legais e responder a pedidos legítimos de autoridades competentes.</li>
+              <li>Enviar comunicações operacionais necessárias à prestação do serviço.</li>
+              <li>Enviar comunicações promocionais quando exista uma base legal adequada.</li>
+            </ul>
+          </section>
+
+          <section class="legal-section" id="privacy-5">
+            <h3>5. Fundamentos do tratamento</h3>
+            <p>
+              Cada actividade de tratamento deverá ter um fundamento legal
+              adequado, determinado de acordo com a legislação aplicável.
+              Consoante o caso, poderá tratar-se de:
+            </p>
+            <ul>
+              <li><strong>Execução de contrato:</strong> quando os dados são necessários para fornecer um serviço solicitado.</li>
+              <li><strong>Obrigação legal:</strong> quando o tratamento é exigido por normas aplicáveis.</li>
+              <li><strong>Consentimento:</strong> quando a lei exige autorização livre, específica e informada.</li>
+              <li><strong>Interesse legítimo:</strong> quando exista um interesse legítimo devidamente avaliado e não prevaleçam os direitos do titular.</li>
+            </ul>
+            <p>
+              A utilização de um fundamento depende da finalidade concreta.
+              A FREEZONE não deverá considerar que um único fundamento legitima
+              automaticamente todos os tratamentos.
+            </p>
+          </section>
+
+          <section class="legal-section" id="privacy-6">
+            <h3>6. Cookies e tecnologias semelhantes</h3>
+            <p>
+              O website poderá utilizar cookies ou tecnologias semelhantes
+              para assegurar funcionalidades, recordar preferências, proteger
+              sessões e compreender a utilização do serviço.
+            </p>
+            <p>
+              Os cookies estritamente necessários ao funcionamento deverão ser
+              distinguidos dos cookies de análise, publicidade ou outras
+              finalidades não essenciais. Estes últimos deverão ser utilizados
+              com o consentimento ou outro fundamento legal aplicável.
+            </p>
+            <p>
+              As opções disponíveis no navegador podem permitir bloquear ou
+              eliminar cookies, mas essa acção poderá afectar determinadas
+              funcionalidades.
+            </p>
+            <div class="info-note warning-note">
+              <strong>Nota de implementação:</strong> a página actual não instala
+              um sistema de consentimento de cookies. Antes de activar ferramentas
+              de análise, publicidade ou rastreamento, deve ser implementado o
+              mecanismo adequado às tecnologias efectivamente utilizadas.
+            </div>
+          </section>
+
+          <section class="legal-section" id="privacy-7">
+            <h3>7. Partilha e destinatários dos dados</h3>
+            <p>
+              A FREEZONE poderá partilhar dados estritamente necessários com
+              destinatários que participem na prestação do serviço, incluindo:
+            </p>
+            <ul>
+              <li>Prestadores de alojamento, armazenamento e infraestrutura.</li>
+              <li>Prestadores de autenticação, comunicação e suporte técnico.</li>
+              <li>Distribuidores musicais, agregadores e plataformas seleccionadas pelo utilizador.</li>
+              <li>Prestadores de pagamentos e instituições financeiras, quando aplicável.</li>
+              <li>Consultores profissionais e prestadores de serviços sujeitos a deveres de confidencialidade.</li>
+              <li>Autoridades públicas, quando exista uma obrigação ou fundamento legal válido.</li>
+            </ul>
+            <p>
+              Os dados não deverão ser vendidos a terceiros para fins próprios
+              de publicidade. Qualquer partilha deve respeitar a finalidade
+              aplicável, a necessidade de acesso e as obrigações de segurança.
+            </p>
+          </section>
+
+          <section class="legal-section" id="privacy-8">
+            <h3>8. Transferências internacionais</h3>
+            <p>
+              Alguns prestadores de serviços podem alojar ou processar dados
+              fora de Angola. Se ocorrer uma transferência internacional,
+              a FREEZONE deverá identificar os destinatários relevantes e
+              verificar as condições legais aplicáveis a essa transferência.
+            </p>
+            <p>
+              A localização dos servidores, os países envolvidos e as garantias
+              utilizadas deverão ser documentados de acordo com a configuração
+              real do serviço. Não se presume que os dados sejam transferidos
+              para qualquer país específico.
+            </p>
+          </section>
+
+          <section class="legal-section" id="privacy-9">
+            <h3>9. Conservação dos dados</h3>
+            <p>
+              Os dados serão conservados durante o período necessário às
+              finalidades para as quais foram recolhidos, considerando também
+              obrigações legais, contratuais, necessidades de segurança e
+              resolução de litígios.
+            </p>
+            <p>Os períodos devem ser definidos por categoria, por exemplo:</p>
+            <ul>
+              <li><strong>Dados de conta:</strong> durante a utilização do serviço e pelo período necessário ao encerramento e à resolução de obrigações pendentes.</li>
+              <li><strong>Dados financeiros:</strong> durante o prazo exigido pela legislação aplicável.</li>
+              <li><strong>Registos de segurança:</strong> durante um período proporcional à finalidade de prevenção e investigação de incidentes.</li>
+              <li><strong>Pedidos de suporte:</strong> durante o tempo necessário à resolução e ao acompanhamento de eventuais reclamações.</li>
+              <li><strong>Consentimentos:</strong> pelo período necessário para demonstrar a sua existência e validade.</li>
+            </ul>
+            <p>
+              Estes exemplos não constituem prazos fixos. A entidade responsável
+              deverá definir os períodos efectivos e eliminar ou anonimizar os
+              dados quando deixarem de ser necessários, salvo obrigação legal
+              de conservação.
+            </p>
+          </section>
+
+          <section class="legal-section" id="privacy-10">
+            <h3>10. Segurança da informação</h3>
+            <p>
+              A FREEZONE deverá adoptar medidas técnicas e organizativas
+              proporcionais aos riscos, incluindo, conforme aplicável:
+            </p>
+            <ul>
+              <li>Controlo de acesso e permissões por função.</li>
+              <li>Protecção de credenciais e utilização de mecanismos seguros de autenticação.</li>
+              <li>Transmissão segura de dados através de HTTPS.</li>
+              <li>Registos e monitorização de actividades relevantes para a segurança.</li>
+              <li>Protecção de cópias de segurança e procedimentos de recuperação.</li>
+              <li>Gestão de vulnerabilidades e actualizações.</li>
+              <li>Procedimentos de resposta a incidentes e acessos não autorizados.</li>
+            </ul>
+            <p>
+              Nenhum sistema pode garantir segurança absoluta. Quando ocorrer
+              um incidente, a entidade responsável deverá avaliar os riscos
+              e cumprir os deveres de comunicação legalmente aplicáveis.
+            </p>
+          </section>
+
+          <section class="legal-section" id="privacy-11">
+            <h3>11. Direitos dos titulares dos dados</h3>
+            <p>
+              Nos termos da legislação aplicável, o titular poderá ter direito
+              a solicitar, conforme as condições legais:
+            </p>
+            <ul>
+              <li>Informação sobre o tratamento dos seus dados.</li>
+              <li>Acesso aos dados pessoais que lhe digam respeito.</li>
+              <li>Correcção de dados incorrectos ou incompletos.</li>
+              <li>Actualização ou eliminação de dados, quando legalmente possível.</li>
+              <li>Oposição a determinados tratamentos, nos casos previstos na lei.</li>
+              <li>Retirada do consentimento, quando o tratamento se baseie nele, sem afectar a licitude do tratamento anterior.</li>
+              <li>Apresentação de reclamação junto da autoridade competente, quando aplicável.</li>
+            </ul>
+            <p>
+              O exercício destes direitos poderá estar sujeito a verificação
+              de identidade e a limitações previstas na lei, nomeadamente
+              quando existam obrigações legais de conservação ou direitos de
+              terceiros que devam ser protegidos.
+            </p>
+          </section>
+
+          <section class="legal-section" id="privacy-12">
+            <h3>12. Como apresentar um pedido de privacidade</h3>
+            <p>
+              Para exercer os seus direitos, o titular deverá contactar a
+              FREEZONE através do endereço oficial de privacidade que será
+              identificado nesta secção.
+            </p>
+            <div class="contact-card">
+              <h3 class="h5">Pedidos de dados pessoais</h3>
+              <p class="mb-1"><strong>E-mail:</strong> [Inserir e-mail de privacidade]</p>
+              <p class="mb-1"><strong>Responsável:</strong> [Inserir entidade responsável]</p>
+              <p class="mb-0">
+                O pedido deverá descrever o direito que pretende exercer e
+                fornecer informação suficiente para permitir a sua análise.
+                Não envies palavras-passe ou documentos sensíveis sem necessidade.
+              </p>
+            </div>
+            <p class="mt-3">
+              A FREEZONE analisará os pedidos e responderá nos prazos
+              legalmente aplicáveis. Poderá solicitar informação adicional
+              quando seja necessário confirmar a identidade do requerente.
+            </p>
+          </section>
+
+          <section class="legal-section" id="privacy-13">
+            <h3>13. Dados de menores</h3>
+            <p>
+              Os serviços destinados à gestão de direitos, contratos,
+              distribuição musical e pagamentos podem exigir capacidade legal
+              para celebrar contratos ou a intervenção de um representante legal.
+            </p>
+            <p>
+              A FREEZONE deverá definir uma política adequada à idade mínima
+              de utilização e verificar os requisitos legais aplicáveis.
+              Quando sejam tratados dados de menores, deverão ser aplicadas
+              as protecções e autorizações exigidas pela lei.
+            </p>
+          </section>
+
+          <section class="legal-section" id="privacy-14">
+            <h3>14. Ligações e serviços de terceiros</h3>
+            <p>
+              A plataforma poderá conter ligações ou funcionalidades fornecidas
+              por terceiros. Ao utilizar esses serviços, o utilizador poderá
+              ficar sujeito às respectivas políticas e condições.
+            </p>
+            <p>
+              A FREEZONE deverá identificar os prestadores que efectivamente
+              recebem dados e fornecer informação adequada antes de qualquer
+              integração que envolva partilha de dados pessoais.
+            </p>
+          </section>
+
+          <section class="legal-section" id="privacy-15">
+            <h3>15. Alterações à Política de Privacidade</h3>
+            <p>
+              Esta Política poderá ser actualizada para reflectir mudanças
+              nas práticas de tratamento, nos serviços, nos prestadores ou
+              na legislação aplicável.
+            </p>
+            <p>
+              A data da última actualização será indicada no início do documento.
+              Quando necessário, os utilizadores serão informados das alterações
+              e será solicitado novo consentimento, nos casos em que a lei o exija.
+            </p>
+          </section>
+
+          <section class="legal-section" id="privacy-16">
+            <h3>16. Legislação e autoridade competente</h3>
+            <p>
+              O tratamento de dados pessoais deverá respeitar a legislação
+              aplicável, incluindo, quando pertinente, a Lei n.º 22/11,
+              de 17 de Junho, relativa à Protecção de Dados Pessoais na
+              República de Angola.
+            </p>
+            <p>
+              Os titulares poderão recorrer à autoridade de controlo competente
+              nos termos da legislação aplicável. A informação sobre a autoridade,
+              os contactos e os procedimentos deverá ser confirmada antes da
+              publicação definitiva desta Política.
+            </p>
+          </section>
+
+          <section class="legal-section" id="privacy-17">
+            <h3>17. Contacto sobre privacidade</h3>
+            <p>
+              Para questões relacionadas com esta Política ou com o tratamento
+              dos teus dados pessoais, utiliza os contactos oficiais da FREEZONE.
+            </p>
+            <div class="contact-card">
+              <h3 class="h5">Privacidade FREEZONE</h3>
+              <p class="mb-1"><strong>E-mail:</strong> [Inserir e-mail oficial]</p>
+              <p class="mb-1"><strong>Morada:</strong> [Inserir endereço completo]</p>
+              <p class="mb-0"><strong>Entidade responsável:</strong> [Inserir denominação legal]</p>
+            </div>
+          </section>
+
+        </article>
+
+        <div class="info-note mt-4">
+          <i class="bi bi-info-circle me-1"></i>
+          Este documento é uma minuta de trabalho para adaptação ao projecto.
+          Não substitui aconselhamento jurídico e não deve ser publicado como
+          versão definitiva sem confirmação da entidade responsável, das práticas
+          reais de tratamento de dados e das condições comerciais da FREEZONE.
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between gap-4">
+        <div>
+          <a class="brand mb-3" href="index.html">
+            <span class="brand-mark"><i class="bi bi-soundwave"></i></span>
+            FREEZONE
+          </a>
+          <p class="mb-0">A tua música. A tua identidade. O teu futuro.</p>
+        </div>
+
+        <div class="footer-links align-items-start">
+          <a href="index.html">Página inicial</a>
+          <a href="#terms" data-switch="terms">Termos de utilização</a>
+          <a href="#privacy" data-switch="privacy">Política de privacidade</a>
+          <a href="mailto:[INSERIR-EMAIL-OFICIAL]">Contactar</a>
+        </div>
+      </div>
+
+      <hr style="border-color: var(--border); margin: 28px 0 18px;">
+
+      <p class="mb-0">
+        © <span id="currentYear"></span> FREEZONE. Todos os direitos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    "use strict";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabs = [...document.querySelectorAll("[data-document]")];
+      const panels = [...document.querySelectorAll(".document-panel")];
+      const toc = document.getElementById("tableOfContents");
+      const search = document.getElementById("documentSearch");
+      const printButton = document.getElementById("printDocument");
+      const topButton = document.getElementById("topButton");
+
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+
+      function activateDocument(name, updateHistory = true) {
+        const target = document.getElementById(name);
+
+        if (!target) return;
+
+        tabs.forEach(tab => {
+          const active = tab.dataset.document === name;
+          tab.classList.toggle("active", active);
+          tab.setAttribute("aria-selected", String(active));
+        });
+
+        panels.forEach(panel => {
+          panel.hidden = panel.id !== name;
+        });
+
+        if (updateHistory) {
+          history.replaceState(null, "", "#" + name);
+        }
+
+        buildTOC(target);
+        clearSearch();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function buildTOC(panel) {
+        toc.replaceChildren();
+
+        const headings = panel.querySelectorAll(".legal-section[id]");
+
+        headings.forEach(section => {
+          const heading = section.querySelector("h3");
+          if (!heading) return;
+
+          const link = document.createElement("a");
+          link.href = "#" + section.id;
+          link.textContent = heading.textContent;
+          link.dataset.section = section.id;
+
+          link.addEventListener("click", event => {
+            event.preventDefault();
+            section.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+
+            toc.querySelectorAll("a").forEach(item => {
+              item.classList.toggle("active", item === link);
+            });
+          });
+
+          toc.appendChild(link);
+        });
+      }
+
+      function clearSearch() {
+        if (search) search.value = "";
+
+        document.querySelectorAll(".search-match").forEach(element => {
+          element.classList.remove("search-match");
+        });
+
+        const oldMessage = document.querySelector(".no-results");
+        if (oldMessage) oldMessage.remove();
+      }
+
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          activateDocument(tab.dataset.document);
+        });
+      });
+
+      document.querySelectorAll("[data-switch]").forEach(link => {
+        link.addEventListener("click", event => {
+          event.preventDefault();
+          activateDocument(link.dataset.switch);
+        });
+      });
+
+      const initialHash = window.location.hash.replace("#", "");
+      activateDocument(
+        initialHash === "privacy" ? "privacy" : "terms",
+        false
+      );
+
+      if (search) {
+        search.addEventListener("input", () => {
+          const panel = panels.find(item => !item.hidden);
+          if (!panel) return;
+
+          clearSearch();
+
+          const query = search.value.trim().toLocaleLowerCase("pt");
+
+          if (!query) return;
+
+          const sections = [...panel.querySelectorAll(".legal-section")];
+          let matches = 0;
+
+          sections.forEach(section => {
+            const text = section.textContent.toLocaleLowerCase("pt");
+
+            if (text.includes(query)) {
+              section.classList.add("search-match");
+              matches++;
+
+              if (matches === 1) {
+                section.scrollIntoView({
+                  behavior: "smooth",
+                  block: "center"
+                });
+              }
+            }
+          });
+
+          if (matches === 0) {
+            const message = document.createElement("p");
+            message.className = "no-results";
+            message.textContent =
+              "Não foram encontrados resultados para esta pesquisa.";
+            panel.prepend(message);
+          }
+        });
+      }
+
+      printButton?.addEventListener("click", () => {
+        window.print();
+      });
+
+      topButton?.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    });
+  </script>
+</body>
+</html>

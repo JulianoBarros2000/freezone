@@ -16,7 +16,7 @@ AOS.init({
 });
 /**
  * ============================================================
- * ONErpm — Main JavaScript
+ * FREEzone — Main JavaScript
  * Frontend interactions
  * ============================================================
  */
@@ -1227,7 +1227,7 @@ $(document).ready(function () {
     ========================================================= */
 
     console.log(
-        "%c ONErpm ",
+        "%c FREEzone ",
         "background:#8A2BE2;color:#fff;font-size:18px;font-weight:700;padding:8px 14px;border-radius:8px;"
     );
 

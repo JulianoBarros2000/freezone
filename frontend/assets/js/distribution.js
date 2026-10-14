@@ -814,17 +814,16 @@ const Distribution = {
 
             <div class="review-cover">
 
-                ${
-                    coverURL
+                ${coverURL
 
-                        ? `
+                ? `
                             <img
                                 src="${coverURL}"
                                 alt="Capa"
                             >
                         `
 
-                        : `
+                : `
                             <div
                                 style="
                                     height:100%;
@@ -837,7 +836,7 @@ const Distribution = {
                                 <i class="bi bi-image"></i>
                             </div>
                         `
-                }
+            }
 
             </div>
 
@@ -929,11 +928,10 @@ const Distribution = {
                     </span>
 
                     <strong>
-                        ${
-                            audio
-                                ? this.escapeHTML(audio.name)
-                                : "Não seleccionado"
-                        }
+                        ${audio
+                ? this.escapeHTML(audio.name)
+                : "Não seleccionado"
+            }
                     </strong>
 
                 </div>
@@ -947,19 +945,18 @@ const Distribution = {
 
                     <div class="review-platform-list">
 
-                        ${
-                            platforms
-                                .map(
-                                    platform => `
+                        ${platforms
+                .map(
+                    platform => `
                                         <span class="review-platform">
                                             ${this.platformName(
-                                                platform.value
-                                            )}
+                        platform.value
+                    )}
                                         </span>
                                     `
-                                )
-                                .join("")
-                        }
+                )
+                .join("")
+            }
 
                     </div>
 
